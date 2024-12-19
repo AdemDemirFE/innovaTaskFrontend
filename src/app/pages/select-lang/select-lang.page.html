@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar class="toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Dil Seçiniz</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content fullscreen class="content background ion-align-items-center ion-justify-content-center">
+  <!--  <button (click)="backButtonTapped()" class="back-button">
+    <ion-icon class="back-button-icon" name="arrow-back"></ion-icon>
+  </button>-->
+  <ion-grid class="ion-align-items-center ion-justify-content-center langFrame">
+    <ion-list *ngFor="let language of languages" style="margin-bottom: 10px; border-radius: 20px;">
+      <ion-item ion-button (click)="changeLanguage(language.code)" lines="none">
+        <ion-avatar slot="start">
+          <img src="{{language.flag}}">
+        </ion-avatar>
+        <ion-label style="font-size: x-large; ">
+          {{language.lang}}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+
+</ion-content>

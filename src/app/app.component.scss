@@ -1,0 +1,140 @@
+.menu-header-bg {
+  height: 200px;
+  width: 350px;
+  background-color: #ffffff;
+  background: linear-gradient(90deg, #ff2400 40%, #e91d1d 60%);
+  box-shadow: 0px 1px 10px #363636;
+  transform: rotate(-15deg);
+  border-radius: 15px 15px 10px 60px;
+  margin-left: -5px;
+  margin-top: -50px;
+  margin-bottom: 60px;
+}
+
+ion-menu {
+  --ion-background-color: #ffffff;
+  --ion-text-color: var(--ion-color-primary-contrast);
+
+  ion-list {
+    /* optional, but it needs when you use gradient as a background color.*/
+    background: transparent;
+  }
+}
+
+ion-item {
+  //font-weight: bold;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-align: center;
+  //text-transform: uppercase;
+  cursor: pointer;
+  font-size: 20px;
+  letter-spacing: 1px;
+  position: relative;
+  --ion-background-color: #eae4d9;
+  border: none;
+  color: #fff;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #193047;
+  border-radius: 4px;
+}
+
+.header-content {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    //border: 7px solid #ffffff;
+    margin-right: 10px;
+  }
+  h2 {
+    font-weight: 300;
+    color: #000000;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  p {
+    font-size: 15px;
+    color: #000000;
+    font-weight: 100;
+    letter-spacing: 0.4px;
+  }
+
+  .action-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    ion-button {
+      text-transform: capitalize;
+      font-weight: 300;
+      --background: #ff2400;
+      --box-shadow: none;
+    }
+
+    ion-icon {
+      margin-right: 1px;
+    }
+  }
+}
+
+ion-icon {
+  color: #ff2400;
+}
+
+.button {
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 20px;
+  letter-spacing: 4px;
+  position: relative;
+  background-color: #16a085;
+  border: none;
+  color: #fff;
+  padding: 20px;
+  width: 200px;
+  text-align: center;
+  transition-duration: 0.4s;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #193047;
+  border-radius: 4px;
+}
+
+.button:hover {
+  background: #fff;
+  box-shadow: 0px 2px 10px 5px #1abc9c;
+  color: #000;
+}
+
+.button:after {
+  content: "";
+  background: #1abc9c;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.button:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s;
+}
+
+.button:focus {
+  outline: 0;
+}

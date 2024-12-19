@@ -1,0 +1,39 @@
+<ion-content class="fn-login" padding>
+    <ion-row class="row1">
+        <ion-col class="img-container">
+            <img style="width: 150px; height: 150px;" src="assets/img/logo.png">
+
+        </ion-col>
+    </ion-row>
+    <ion-grid>
+        <h3 text-center>
+            Kayıt Ol
+        </h3>
+        <div class="cj-registry">
+            <ion-row>
+                <ion-col>
+                    <ion-input type="text" name="name" placeholder="Kullanıcı Adı"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-input type="password" placeholder="Şifre" name="password"></ion-input>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button color="success" type="submit" expand="block" (click)="register()">
+                        Kayıt Ol
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col>
+                    <ion-button color="tertiary" type="submit" expand="block" (click)="goLogin()">
+                        Giriş Sayfası
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </div>
+    </ion-grid>
+</ion-content>

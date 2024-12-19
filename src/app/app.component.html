@@ -1,3 +1,29 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
-</ion-app>
+
+  <ion-menu menuId="main-menu" content-id="main">
+    <ion-content>
+      <div class="menu-header-bg"></div>
+      <div class="header-content">
+        <!-- <img src="./assets/logo/belediyeLogo.png" alt=""> -->
+        <ion-label >
+          <h2 style="color: white;">Innova Task</h2>
+          <p style="color: white;">For u test</p>
+        </ion-label>
+      </div>
+      
+      <ion-list *ngFor="let item of menuItems">
+        <ion-menu-toggle autoHide="false">
+          <ion-item routerLink="{{item.url}}" style="font-family: Arial, Helvetica, sans-serif; color: black;">
+            <ion-icon name="{{item.icon}}"></ion-icon>
+            {{item.name}}
+          </ion-item>
+        </ion-menu-toggle> 
+      </ion-list>
+
+
+    </ion-content>
+
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
+  
+</ion-app> 

@@ -1,0 +1,35 @@
+h3 {
+    color: #fff;
+}
+
+.cj-registry ion-input,
+.cj-registry ion-datetime,
+.cj-registry .ion-select {
+    background-color: #bbc6e6;
+    border-radius: 40px;
+    --padding-start: 18px;
+    --border-radius: 40px;
+}
+
+.cj-registry .ion-select ion-label {
+    color: #a1a0a7;
+}
+
+.cj-registry ion-button {
+    color: #fff;
+    --border-color: initial;
+    --border-radius: 30px;
+}
+
+img {
+    width: 150px;
+}
+
+.cj-registry ion-label {
+    color: #fff;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+ }
