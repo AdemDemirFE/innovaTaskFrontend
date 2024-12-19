@@ -117,7 +117,7 @@ ion-content {
   flex-grow: 0;
 }
 
-.squareText {
+.squareButton {
   width: 170px;
   height: 20px;
   font-family: "Roboto";
@@ -131,6 +131,8 @@ ion-content {
   flex: none;
   order: 2;
   flex-grow: 0;
+  margin: auto;
+  --background: transparent;
 }
 
 .textBar {
@@ -195,7 +197,7 @@ ion-content {
   padding: 0px 15px 0px 11px;
   width: 352px;
   height: 45px;
-  background: linear-gradient(
+  --background: linear-gradient(
     270.43deg,
     rgba(0, 0, 0, 0.11) 1.69%,
     rgba(53, 53, 53, 0.11) 51.57%,
@@ -273,6 +275,7 @@ ion-content {
   flex: none;
   order: 0;
   flex-grow: 0;
+  margin-bottom: 10px;
 }
 
 .rememberMeandLanguage {
@@ -302,7 +305,6 @@ ion-content {
   position: absolute;
   width: 85px;
   height: 20px;
-  left: 65px;
   top: 11px;
   font-family: "Roboto";
   font-style: normal;

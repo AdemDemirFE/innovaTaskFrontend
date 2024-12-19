@@ -1,51 +1,33 @@
-<ion-content class="responsive-container"
-  ><img
-    src="../../../assets/img/logo45.png"
-    style="width: 100%; height: 100%"
-  />
+<ion-content class="responsive-container">
   <ion-col class="mainBody">
     <ion-row class="logo" (click)="QRCode()"><img src="../../../assets/img/logo.png" /></ion-row>
     <ion-row class="card">
       <ion-row class="cardText">
         <ion-grid class="block">
           <ion-row class="logoBar">
-            <ion-col class="subLogo">
-              <img
-                style="width: 50px; height: 50px"
-                src="../../../assets/img/logo.png"
-              />
-            </ion-col>
-            <ion-col class="squareCode">
-              <ion-col class="square">
-                <img
-                  class="image-hover"
-                  src="../../../assets/img/squareCode.png"
-                  (click)="QRCode()"
-                />
-              </ion-col>
-              <ion-col class="squareText">
-                {{'LOGIN.INSTITUTION_DESCRIPTION_QR_CODES'| translate}}
-              </ion-col>
-            </ion-col>
+            <ion-button class="squareButton" (click)="register()">
+              {{'LOGIN.REGISTER'| translate}}
+            </ion-button>
           </ion-row>
           <ion-row class="textBar">
-            <ion-row class="userName">
+            <ion-item class="password">
               <ion-input
                 mode="ios"
-                [(ngModel)]="account.username"
+                [(ngModel)]="account.userName"
                 class="userNameText"
                 placeholder="{{ 'LOGIN.USERNAME' | translate }}"
               ></ion-input>
-            </ion-row>
-            <ion-row class="password">
+            </ion-item>
+            <ion-item class="password">
               <ion-input
                 mode="ios"
                 [(ngModel)]="account.password"
                 placeholder="{{ 'LOGIN.PASSWORD' | translate }}"
-                type="password"
+                type="{{ showPassword ? 'text' : 'password' }}" 
                 class="passwordText"
               ></ion-input>
-            </ion-row>
+              <ion-icon name="eye" slot="end" color="{{ showPassword ? 'success' : 'medium' }}" style="cursor: pointer;" (click)="togglePasswordVisibility()"></ion-icon>
+            </ion-item>
             <ion-row class="rememberMeandLanguage">
               <ion-col class="rememberMe">
                 <ion-col class="toggle">
@@ -87,7 +69,8 @@
       <button
         class="loginButton"
         [disabled]="isButtonDisabled"
-        (click)="doLogin2()"
+        (click)="doLogin()"
+        [disabled]="account.userName == '' || account.password == '' "fill="solid"
       >
         <ion-text class="textLogin"
           ><ion-label class="loginText"

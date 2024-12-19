@@ -1,35 +1,124 @@
-h3 {
-    color: #fff;
+ion-content {
+  --background: linear-gradient(
+    to right top,
+    #799c96,
+    #86a19d,
+    #9fbbb6,
+    #479487,
+    #889b98
+  );
+  background-size: cover;
+}
+.middle_conn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-wrap: wrap;
+  margin-top: -25px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+
+  div {
+    width: 100%;
+    padding: 5px;
+  }
 }
 
-.cj-registry ion-input,
-.cj-registry ion-datetime,
-.cj-registry .ion-select {
-    background-color: #bbc6e6;
-    border-radius: 40px;
-    --padding-start: 18px;
-    --border-radius: 40px;
+.form-input {
+  width: 96%;
+  box-shadow: var(--box-shadow);
+  margin: 0 auto;
+  border: 1px solid #293349;
+  border-radius: 5px;
+  margin: 5px;
+  --background: linear-gradient(
+    270.43deg,
+    rgba(0, 0, 0, 0.11) 1.69%,
+    rgba(53, 53, 53, 0.11) 51.57%,
+    rgba(0, 0, 0, 0.11) 98.42%
+  );
+  box-shadow: inset 0px -1px 0px rgba(255, 251, 251, 0.3),
+    inset 1px 1px 1px rgba(0, 0, 0, 0.13);
+  border-radius: 28px;
 }
 
-.cj-registry .ion-select ion-label {
-    color: #a1a0a7;
+.top_img {
+  width: 100%;
+  position: absolute;
+  top: 0%;
 }
 
-.cj-registry ion-button {
-    color: #fff;
-    --border-color: initial;
-    --border-radius: 30px;
+.bottom_img {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
 }
 
-img {
-    width: 150px;
+.center_img {
+  width: 120px;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  top: 13%;
+  position: fixed;
 }
 
-.cj-registry ion-label {
-    color: #fff;
+.signUp-button {
+  --background: #00c26d;
+  --background-hover: #00c26d;
+  --background-activated: #00c26d;
+  --background-focused: #00c26d;
+  --color: white;
+  margin: 0 auto;
+  width: 90%;
+  height: 45px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-.img-container {
-    display: flex;
+.girisButton {
+  --color: #f77a73;
+  font-weight: bold;
+  font-size: 13px;
+  padding-top: 15px;
+}
+
+ion-list {
+  background: linear-gradient(
+      0deg,
+      rgba(0, 84, 80, 0.25),
+      rgba(0, 84, 80, 0.25)
+    ),
+    linear-gradient(98.11deg, #216969 42.18%, #256961 56.23%);
+  box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.5);
+
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 500px;
+  position: absolute !important;
+  text-align: center;
+}
+
+@media only screen and (min-width: 480px) {
+  ion-list {
     justify-content: center;
- }
+    padding: 10px;
+    border-radius: 10px;
+    width: 500px;
+    position: absolute !important;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 480px) {
+  ion-list {
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px;
+    position: absolute !important;
+    text-align: center;
+  }
+}

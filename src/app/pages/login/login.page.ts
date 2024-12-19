@@ -118,11 +118,13 @@ export class LoginPage implements OnInit {
 
   }
 
-  doLogin2() {
-    this.navCtrl.navigateForward("/home");
+  register() {
+    this.navCtrl.navigateForward("/register");
+
   }
 
   doLogin() {
+    this.navCtrl.navigateForward("/home");
   }
 
 }

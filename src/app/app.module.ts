@@ -11,6 +11,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateConfigService } from 'src/translate-config.service';
 import { C_Utils } from '../providers/utils';
+import { Service } from 'src/providers/service/service';
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -30,6 +31,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   providers: [    
     C_Utils,
+    Service,
     TranslateConfigService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],

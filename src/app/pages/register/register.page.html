@@ -1,39 +1,45 @@
-<ion-content class="fn-login" padding>
-    <ion-row class="row1">
-        <ion-col class="img-container">
-            <img style="width: 150px; height: 150px;" src="assets/img/logo.png">
 
-        </ion-col>
-    </ion-row>
-    <ion-grid>
-        <h3 text-center>
-            Kayıt Ol
-        </h3>
-        <div class="cj-registry">
-            <ion-row>
-                <ion-col>
-                    <ion-input type="text" name="name" placeholder="Kullanıcı Adı"></ion-input>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col>
-                    <ion-input type="password" placeholder="Şifre" name="password"></ion-input>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col>
-                    <ion-button color="success" type="submit" expand="block" (click)="register()">
-                        Kayıt Ol
-                    </ion-button>
-                </ion-col>
-            </ion-row>
-            <ion-row>
-                <ion-col>
-                    <ion-button color="tertiary" type="submit" expand="block" (click)="goLogin()">
-                        Giriş Sayfası
-                    </ion-button>
-                </ion-col>
-            </ion-row>
+<ion-content class="background-color">
+
+    <ion-grid class="middle_conn">
+      <ion-list>
+        <div style="text-align: center;">
+          <img style="width:  150px; height: auto;" src="../../../assets/img/logo.png">
         </div>
+        <ion-item-group style="margin-top: 10px;">
+          <ion-item class="form-input">
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-input type="text" [(ngModel)]="userName" placeholder="{{ 'REGISTER.USERNAME' | translate }}" clearInput required="true"></ion-input>
+          </ion-item>
+  
+          <ion-item class="form-input">
+            <ion-icon name="mail" slot="start"></ion-icon>
+            <ion-input type="email" [(ngModel)]="email" placeholder="{{ 'REGISTER.EMAIL' | translate }}" clearInput required="true"></ion-input>
+          </ion-item>
+  
+          <ion-item class="form-input">
+            <ion-icon name="key" slot="start"></ion-icon>
+            <ion-input type="{{ showPassword ? 'text' : 'password' }}" [(ngModel)]="password" placeholder="{{ 'REGISTER.PASSWORD' | translate }}" clearInput required="true"></ion-input>
+            <ion-icon name="eye" slot="end" color="{{ showPassword ? 'success' : 'medium' }}" style="cursor: pointer;" (click)="togglePasswordVisibility()"></ion-icon>
+        </ion-item>
+  
+          <ion-item class="form-input">
+            <ion-icon name="key" slot="start"></ion-icon>
+            <ion-input type="{{ showPasswordReapat ? 'text' : 'password' }}" [(ngModel)]="passwordRepeat" placeholder="{{ 'REGISTER.PASSWORD_REPEAT' | translate }}" clearInput required="true"></ion-input>
+            <ion-icon name="eye" slot="end" color="{{ showPasswordReapat ? 'success' : 'medium' }}" style="cursor: pointer;" (click)="togglePasswordRepeatVisibility()"></ion-icon>
+          </ion-item>
+  
+          <ion-item *ngIf="password !== passwordRepeat" color="danger" style="border-radius: 10px;">
+            <ion-label style="color: #ffffff; white-space: normal;">{{ 'REGISTER.PASSWORDS_DO_NOT_MATCH' | translate }}</ion-label>
+          </ion-item>
+  
+          <ion-button [disabled]="email == '' || userName == '' || password == '' || passwordRepeat == '' || password != passwordRepeat" class="signUp-button" fill="solid" expand="block" (click)="register()">{{ 'REGISTER.REGISTER' | translate }}</ion-button>
+          <ion-button class="girisButton" fill="clear" (click)="login()"><ion-label style="color: rgb(136, 136, 136);;">{{ 'REGISTER.I_HAVE_ACCOUNT' | translate }} </ion-label>&nbsp;{{ 'REGISTER.LOGIN' | translate }}</ion-button>
+         
+        </ion-item-group>
+      </ion-list>
+  
     </ion-grid>
-</ion-content>
+  
+  </ion-content>
+  

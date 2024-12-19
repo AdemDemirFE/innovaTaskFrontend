@@ -30,10 +30,10 @@ export let isIosWebView: boolean[] = [false];
 
 
 //Oturum Açan Kullanıcı Bilgilerini Tutar
-export const account: { identifyNumber?: string, token?: string, type?: number, username?: string, password?: string, tgt?: string, cookie?: string} = {
+export const account: { identifyNumber?: string, token?: string, type?: number, userName?: string, password?: string, tgt?: string, cookie?: string} = {
     identifyNumber: '',
     token: '',
-    username: '',
+    userName: '',
     tgt: '',
     cookie: '',
     password: '',
