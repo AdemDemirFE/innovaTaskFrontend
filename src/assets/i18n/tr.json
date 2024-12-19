@@ -67,7 +67,8 @@
         "REGISTER": "Kayıt Ol",
         "I_HAVE_ACCOUNT": "Hesabım var...",
         "LOGIN": "Giriş Sayfası",
-        "PASSWORDS_DO_NOT_MATCH": "Girmiş olduğunuz şifreler eşleşmiyor!"
+        "PASSWORDS_DO_NOT_MATCH": "Girmiş olduğunuz şifreler eşleşmiyor!",
+        "REGISTER_SUCCESSFULY": "Kayıt işlemi başarıyla gerçekleşti! giriş ekranına yönlendiriliyorsunuz."
     },
     "ERROR": {
         "NOT_SEND_SMS": "SMS gönderilmedi Telefon Numarası yanlış",
@@ -94,25 +95,5 @@
         "CURRENT_PASSWORD": "Mevcut Şifre",
         "NEW_PASSWORD": "Yeni Şifre",
         "NEW_PASSWORD_REPEAT": "Yeni Şifre Tekrar"
-    },
-    "WATER_BALANCE": {
-        "HEADER": "Su Dengesi",
-        "ADD_1": "Bir tür sıvı ekleyin",
-        "ADD_0": "Sıvı çıkarıldı",
-        "FLUID_AMOUNT": "Değişken miktar",
-        "DATE_TIME": "Tarih / Saat",
-        "ADD": "EKLE",
-        "HISTORY": "Su Dengesi Geçmişi",
-        "EMPTY_FLASK": "Temizle",
-        "HISTORY_BTN": "Geçmiş",
-        "QUICK_INPUT": "Hızlı giriş",
-        "GLASS_OF_WATER": "Bir bardak su",
-        "CUP_OF_TEA": "Bir fincan çay",
-        "PLATE_SOUP": "Bir Tabak Çorba",
-        "PLATE_CANTEEN": "Bir Tabak Sulu yemek",
-        "INTRODUCED": "Alınan Sıvı",
-        "WITHDRAWN": "Çıkan Sıvı",
-        "DESC": "Açıklama",
-        "UNIT": "ml"
     }
 }

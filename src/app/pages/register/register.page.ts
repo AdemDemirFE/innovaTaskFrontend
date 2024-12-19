@@ -5,6 +5,9 @@ import { GeneralSettings } from '../../pages';
 import { Service } from 'src/providers/service/service';
 import { C_Utils } from 'src/providers/utils';
 import { Router } from '@angular/router';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { AuthService } from 'src/providers/service/authService';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -25,7 +28,8 @@ export class RegisterPage implements OnInit {
     public modalCtrl: ModalController,
     public service: Service,
     public c_Utils: C_Utils,
-    public router : Router
+    public router : Router,
+		private authService: AuthService,
     ) { 
       localStorage.setItem('token', '');
     }
@@ -41,36 +45,29 @@ export class RegisterPage implements OnInit {
     this.showPasswordReapat = !this.showPasswordReapat;
   }
   
-  register(){
-    this.translate.get(['LOGIN', 'ERROR', 'PLEASE_WAIT', 'GENERAL']).subscribe(async values => {
-      var loading = await this.loadingController.create({
-        message: (values.PLEASE_WAIT)
+
+  async register() {
+    this.translate.get(['REGISTER', 'ERROR', 'PLEASE_WAIT', 'GENERAL']).subscribe(async (values) => {
+      const loading = await this.loadingController.create({
+        message: values.PLEASE_WAIT,
       });
       await loading.present();
-
-      let params = {
-        "email": this.email,
-        "langKey": GeneralSettings.lang,
-        "login":  this.userName,
-        "password": this.password,
-      };
-      // this.service.create( params, "register").toPromise().then(async (response) => {
-      //   loading.dismiss();
-      //   this.c_Utils.getToast(values.GENERAL.SAVE_SUCCESSFUL, 'middle', 3000, false, "toast-success");
-      // }, 
-      // (err) => {
-      //   loading.dismiss();
-      //   this.c_Utils.getToast(values.GENERAL.SERVICE_ERROR, 'top', 3000, false, "toastClass");
-      //   console.error("register error ------>", JSON.stringify(err));
-      // });
+      try {
+        const user = await this.authService.register({ email: this.email, password: this.password });
+        console.log('User registered:', user);
+        await loading.dismiss();
+  
+        this.c_Utils.getToast(values.REGISTER.REGISTER_SUCCESSFULY, 'middle', 3000, false, 'toast-success');
+      } catch (error: any) {
+        await loading.dismiss();
+        this.c_Utils.getToast(values.GENERAL.SERVICE_ERROR, 'top', 3000, false, 'toastClass');
+        console.error('Register error ------>', error.message);
+      }
     });
   }
 
   login(){
-    this.translate.get(['LOGIN']).subscribe(values => {
-      this.router.navigate(['/login']);
-      //this.close();
-    });
+    this.router.navigate(['/login']);
   }
 
   async close() {

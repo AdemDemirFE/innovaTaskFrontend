@@ -12,6 +12,15 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateConfigService } from 'src/translate-config.service';
 import { C_Utils } from '../providers/utils';
 import { Service } from 'src/providers/service/service';
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { environment } from '../environments/environment';
+import { getFirestore } from 'firebase/firestore';
+
+const firebaseApp = initializeApp(environment.firebaseConfig);
+const firestore = getFirestore(firebaseApp);
+
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -20,6 +29,7 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [BrowserModule,
      IonicModule.forRoot(), 
      AppRoutingModule,
+     
      HttpClientModule,
      TranslateModule.forRoot({
       loader: {

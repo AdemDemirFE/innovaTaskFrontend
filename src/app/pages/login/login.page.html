@@ -13,7 +13,7 @@
             <ion-item class="password">
               <ion-input
                 mode="ios"
-                [(ngModel)]="account.userName"
+                [(ngModel)]="userName"
                 class="userNameText"
                 placeholder="{{ 'LOGIN.USERNAME' | translate }}"
               ></ion-input>
@@ -21,7 +21,7 @@
             <ion-item class="password">
               <ion-input
                 mode="ios"
-                [(ngModel)]="account.password"
+                [(ngModel)]="password"
                 placeholder="{{ 'LOGIN.PASSWORD' | translate }}"
                 type="{{ showPassword ? 'text' : 'password' }}" 
                 class="passwordText"
@@ -30,18 +30,11 @@
             </ion-item>
             <ion-row class="rememberMeandLanguage">
               <ion-col class="rememberMe">
-                <ion-col class="toggle">
-                  <ion-toggle
-                    class="toggleButton"
-                    [(ngModel)]="rememberMe"
-                    aria-label="Light toggle"
-                    color="light"
-                    mode="ios"
-                  ></ion-toggle>
-                </ion-col>
-                <ion-col class="textRemember"
-                  >{{ 'LOGIN.REMEMBER_ME' | translate }}</ion-col
-                >
+                  <ion-col class="toggle">
+                      <ion-toggle class="toggleButton" [(ngModel)]="rememberMe" aria-label="Light toggle"
+                          color="light" mode="ios"></ion-toggle>
+                  </ion-col>
+                  <ion-col class="textRemember">{{ 'LOGIN.REMEMBER_ME' | translate }}</ion-col>
               </ion-col>
 
               <ion-col class="languageChoose">
@@ -69,8 +62,8 @@
       <button
         class="loginButton"
         [disabled]="isButtonDisabled"
-        (click)="doLogin()"
-        [disabled]="account.userName == '' || account.password == '' "fill="solid"
+        (click)="login()"
+        [disabled]="userName == '' || password == '' " fill="solid"
       >
         <ion-text class="textLogin"
           ><ion-label class="loginText"

@@ -6,6 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { C_Utils } from 'src/providers/utils';
 import { GeneralSettings, account, appCode, appVersion } from 'src/app/pages';
 import { Langs } from 'src/app/lang';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { AuthService } from 'src/providers/service/authService';
 
 @Component({
   selector: 'app-login',
@@ -18,13 +20,12 @@ export class LoginPage implements OnInit {
   appVersion = "1.0.0";
   identificationNumber = "";
   identificationPass = "";
-  loginBtnName = "";
-  segmentName = "hasta"
+  loginBtnName: any = "";
   personelType_ = "";
 
   rememberMe: boolean = false;
-  username="";
-  password="";
+  userName: any="";
+  password: any="";
 
 
 
@@ -49,30 +50,28 @@ export class LoginPage implements OnInit {
     public http: HttpClient,
     public C_Utils: C_Utils,
     public modalCtrl: ModalController,
-    public navController: NavController
+    public navController: NavController,
+		private authService: AuthService
 
   ) { }
 
   ngOnInit() {
 
   }
-  segmentChanged(ev: any) {
-    if (ev.detail.value == "hasta") {
-      this.segmentName = "hasta"
-    } else {
-      this.segmentName = "personel"
-    }
 
-  }
-  loginPersonel() {
-
-  }
 
   kullanimSozlesmesi() {
   }
-  login() {
-    this.navController.navigateBack('tabs/home')
+  async login() {
+    try {
+      const user = await this.authService.login({ email: this.userName, password: this.password });
+      console.log('User logged in:', user);
+      alert('Login successful!');
+    } catch (error: any) {
+      alert('Login failed: ' + error.message);
+    }
   }
+
   changeLangue() {
     this.navController.navigateForward("/select-lang");
   }
