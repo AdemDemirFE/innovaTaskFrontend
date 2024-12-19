@@ -1,0 +1,49 @@
+<ion-content>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button class="menuBtn"></ion-menu-button>
+      </ion-buttons>
+      <ion-title>{{ 'PROFILE.TITLE' | translate }}</ion-title>
+      <ion-buttons slot="end">
+        <ion-button color="danger" (click)="logout()">
+          {{ 'PROFILE.LOGOUT' | translate }}
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{ 'PROFILE.USER_INFO' | translate }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>{{ 'PROFILE.EMAIL' | translate }}</ion-label>
+              <ion-text>{{ user?.email }}</ion-text>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ 'PROFILE.UID' | translate }}</ion-label>
+              <ion-text>{{ user?.uid }}</ion-text>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ 'PROFILE.EMAIL_VERIFIED' | translate }}</ion-label>
+              <ion-text>{{ user?.emailVerified ? 'Yes' : 'No' }}</ion-text>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ 'PROFILE.CREATED_AT' | translate }}</ion-label>
+              <ion-text>{{ user?.createdAt }}</ion-text>
+            </ion-item>
+            <ion-item>
+              <ion-label>{{ 'PROFILE.LAST_LOGIN' | translate }}</ion-label>
+              <ion-text>{{ user?.lastLoginAt }}</ion-text>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

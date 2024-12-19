@@ -50,3 +50,23 @@
   --background: #dc3545;
   --color: #fff;
 }
+
+:root {
+  --ion-color-toolbar-background: #597b73; /* Uyumlu koyu yeşilimsi bir ton */
+  --ion-color-toolbar-color: #ffffff; /* Beyaz metin rengi */
+}
+
+ion-content {
+  --background: linear-gradient(
+    to right top,
+    #799c96,
+    #86a19d,
+    #9fbbb6,
+    #479487,
+    #889b98
+  );
+}
+ion-toolbar {
+  --background: var(--ion-color-toolbar-background);
+  --color: var(--ion-color-toolbar-color);
+}

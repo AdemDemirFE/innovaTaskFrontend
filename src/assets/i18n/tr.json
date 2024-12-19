@@ -84,22 +84,20 @@
     "INTERNAL_SERVER_ERROR": "Bir hatayla karşılaşıldı !!",
     "NOT_CONNECT_SERVER": "Sunucuya bağlanılamıyor !!"
   },
-  "PROFILE": {
-    "NAME": "Ad",
-    "LAST_NAME": "Soyad",
-    "NAMESURNAME": "Ad Soyad",
-    "USER_NAME": "Kullanıcı Adı",
-    "EMAIL": "E-mail",
-    "PHONE": "Telefon",
-    "CHANGE_PASSWORD": "Şifre Değiştir",
-    "TAKE_PHOTO": "Fotoğraf Çek",
-    "CHOOSE_PHOTO": "Albümden resim seçin",
-    "LOGOUT": "Çıkış"
-  },
   "CHANGE_PASSWORD": {
     "PASSWORD_FOR_USER": "Kullanıcısı şifre değiştir",
     "CURRENT_PASSWORD": "Mevcut Şifre",
     "NEW_PASSWORD": "Yeni Şifre",
     "NEW_PASSWORD_REPEAT": "Yeni Şifre Tekrar"
+  },
+  "PROFILE": {
+    "TITLE": "Profil",
+    "USER_INFO": "Kullanıcı Bilgileri",
+    "EMAIL": "E-posta",
+    "UID": "Kullanıcı ID",
+    "EMAIL_VERIFIED": "E-posta Doğrulandı",
+    "CREATED_AT": "Oluşturulma Tarihi",
+    "LAST_LOGIN": "Son Giriş",
+    "LOGOUT": "Çıkış Yap"
   }
 }

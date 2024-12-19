@@ -9,6 +9,7 @@ import { AuthService } from 'src/providers/service/authService';
 import { NotificationService } from 'src/providers/generalServices/NotificationService';
 import { LoadingService } from 'src/providers/generalServices/LoadingService';
 import { AlertService } from 'src/providers/generalServices/AlertService';
+import { account } from '../../pages';
 
 @Component({
   selector: 'app-login',
@@ -18,14 +19,14 @@ import { AlertService } from 'src/providers/generalServices/AlertService';
 })
 export class LoginPage implements OnInit {
   appVersion = '1.0.0';
-  userName: string = '';
-  password: string = '';
+  userName: string = 'adem.demir.fe@gmail.com';
+  password: string = '123456';
   rememberMe: boolean = false;
   code = 'en';
   showPassword: boolean = false;
 
   languages = Langs;
-
+  account = account;
   constructor(
     private router: Router,
     private translateService: TranslateService,
@@ -65,7 +66,6 @@ export class LoginPage implements OnInit {
         password: this.password,
       });
       console.log('User logged in:', user);
-
       this.notificationService.showSuccess(
         this.translateService.instant('LOGIN.LOGIN_SUCCESS'),
         'middle'

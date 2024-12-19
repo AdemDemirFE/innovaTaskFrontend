@@ -1,0 +1,100 @@
+:host {
+  ion-content {
+    --background: #f4f4f9; /* Hafif gri bir arka plan rengi */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 16px;
+  }
+
+  ion-header {
+    ion-toolbar {
+      --background: #3880ff; /* Ana renk: Ionic varsayılan mavi */
+      --color: #ffffff; /* Beyaz yazı */
+      font-size: 1.2rem;
+
+      ion-title {
+        font-weight: bold;
+      }
+
+      ion-button {
+        font-size: 0.9rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  ion-grid {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    ion-card {
+      background: #ffffff; /* Beyaz kart arka planı */
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+
+      ion-card-header {
+        background: #3880ff; /* Başlık arka planı */
+        color: #ffffff; /* Beyaz yazı */
+        text-align: center;
+        padding: 16px;
+
+        ion-card-title {
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+      }
+
+      ion-card-content {
+        padding: 16px;
+
+        ion-item {
+          --background: transparent;
+          --border-color: #dedede; /* Alt çizgi rengi */
+          margin: 8px 0;
+          border-radius: 8px;
+          padding: 8px;
+
+          ion-label {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #444; /* Hafif koyu gri */
+          }
+
+          ion-text {
+            font-size: 1rem;
+            color: #666; /* Açık gri */
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :host {
+    ion-grid {
+      max-width: 800px; /* Daha geniş ekranlar için max genişlik */
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  :host {
+    ion-grid {
+      padding: 8px;
+    }
+
+    ion-header {
+      ion-toolbar {
+        ion-title {
+          font-size: 1rem; /* Küçük ekranlarda başlık boyutu küçültülür */
+        }
+      }
+    }
+  }
+}

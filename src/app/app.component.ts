@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateConfigService } from 'src/translate-config.service';
 import { GeneralSettings } from './pages';
+import { NavController } from '@ionic/angular';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -12,13 +13,20 @@ import { GeneralSettings } from './pages';
 export class AppComponent {
   
   selectedLanguage:string;
-  menuItems: any = [];
   code = GeneralSettings.lang;
+
+  menuItems = [
+    { name: 'Home', url: '/home', icon: 'home' },
+    { name: 'Profile', url: '/profile', icon: 'person' },
+    { name: 'Settings', url: '/settings', icon: 'settings' },
+    { name: 'About', url: '/about', icon: 'information-circle' },
+  ];
 
   constructor(
     public translateService: TranslateService,
     public translateConfigService: TranslateConfigService,
-    public router: Router
+    public router: Router,
+    public navCtrl: NavController
   ) {
     this.translateService.setDefaultLang(this.code);
     this.translateService.use(this.code);
@@ -26,40 +34,13 @@ export class AppComponent {
 
     this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
   }
+
+  goToPage(url: string) {
+    this.navCtrl.navigateForward(url); // İleriye yönlendirme
+  }
+
   ngOnInit(){
 
-    this.menuItems = [
-    {
-      name: 'Home',
-      url: '/tabs/home',
-      icon: 'home'
-    },
-    {
-      name: 'Profil',
-      url: '/my-profile',
-      icon: 'person'
-    },
-    {
-      name: 'register',
-      url: '/register',
-      icon: 'person'
-    },
-    {
-      name: 'about',
-      url: '/about',
-      icon: 'person'
-    },
-    {
-      name: 'menu',
-      url: '/menu-page',
-      icon: 'person'
-    },
-    {
-      name: 'İletişim',
-      url: '/contac',
-      icon: 'call'
-    },
-    ]
   }
 
 }

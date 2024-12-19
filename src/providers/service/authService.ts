@@ -49,6 +49,10 @@ export class AuthService {
     }
   }
 
+  getUser(): User | null {
+    return this.auth.currentUser;
+  }
+
   /**
    * Kullanıcı Çıkışı
    */
