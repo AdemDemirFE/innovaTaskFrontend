@@ -21,7 +21,30 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'camera',
+    loadChildren: () => import('./pages/camera/camera.module').then( m => m.CameraPageModule)
+  },
+  {
+    path: 'barcode',
+    loadChildren: () => import('./pages/barcode/barcode.module').then( m => m.BarcodePageModule)
+  },
+  {
+    path: 'material',
+    loadChildren: () => import('./pages/material/material.module').then( m => m.MaterialPageModule)
+  },
+  {
+    path: 'video',
+    loadChildren: () => import('./pages/video/video.module').then( m => m.VideoPageModule)
+  },
+  {
+    path: 'chart',
+    loadChildren: () => import('./pages/chart/chart.module').then( m => m.ChartPageModule)
   }
+
+
+
 
 ];
 @NgModule({

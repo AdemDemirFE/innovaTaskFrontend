@@ -23,11 +23,17 @@ export class HomePage {
     autoplay: true,
 
   };
-
+  buttonList = [
+    { id: 1, label: 'Camera', icon: 'camera', action: 'camera' },
+    { id: 2, label: 'Barcode', icon: 'barcode', action: 'barcode' },
+    { id: 3, label: 'Angular Material', icon: 'grid', action: 'material' },
+    { id: 4, label: 'Video', icon: 'videocam', action: 'video' },
+    { id: 5, label: 'Chart.js', icon: 'stats-chart', action: 'chart' },
+  ];
   constructor(
     public menuCtrl: MenuController,
     public modalCtrl: ModalController,
-    private navController: NavController,
+    public navController: NavController,
     public translateService: TranslateService,
     public actionSheetCtrl: ActionSheetController,
     public loadingController: LoadingController,
@@ -51,8 +57,19 @@ export class HomePage {
 
   }
 
-  goToPage() {
+  goToPage(url: string) {
+    this.navController.navigateForward(url); // İleriye yönlendirme
   }
+
+  executeAction(action: string) {
+    const method = this[action as keyof HomePage];
+    if (typeof method === 'function') {
+      method.call(this);
+    } else {
+      console.error(`Method ${action} does not exist.`);
+    }
+  }
+
   goFood() {
     this.router.navigateByUrl('/food')
   }
@@ -72,19 +89,16 @@ export class HomePage {
     });
   }
 
-  //Move to previous slide
   slidePrev(object:any, slideView:any) {
     slideView.slidePrev(500).then(() => {
       this.checkIfNavDisabled(object, slideView);
     });;
   }
 
-  //Method called when slide is changed by drag or navigation
   SlideDidChange(object:any, slideView:any) {
     this.checkIfNavDisabled(object, slideView);
   }
 
-  //Call methods to check if slide is first or last to enable disbale navigation  
   checkIfNavDisabled(object:any, slideView:any) {
     this.checkisBeginning(object, slideView);
     this.checkisEnd(object, slideView);

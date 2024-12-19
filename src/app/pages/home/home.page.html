@@ -1,9 +1,9 @@
 <ion-header>
-  <ion-toolbar class="toolbar">
+  <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button class="menuBtn"></ion-menu-button>
     </ion-buttons>
-    <ion-title class="title">HOME</ion-title>
+    <ion-title>HOME</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -37,34 +37,10 @@
   </ion-grid>
 
   <ion-grid style="margin-bottom: 10px;">
-    <ion-row style="padding-top: 7px; padding-bottom: 0px; border-radius: 5px;" class="ion-justify-content-center">
-      <button class="btn-grad" (click)="goFood()">
-        <ion-icon class="buttonIcon" name="home"></ion-icon>
-        <p style="margin-top: 10px;">Gıda</p>
-      </button>
-      <button class="btn-grad" (click)="goDress()">
-        <ion-icon class="buttonIcon" name="home"></ion-icon>
-        <p style="margin-top: 10px;">Giyecek</p>
-      </button>
-      <button class="btn-grad" (click)="goShelter()">
-        <ion-icon class="buttonIcon" name="home"></ion-icon>
-        <p style="margin-top: 10px;">Barınma</p>
-      </button>
-      <button class="btn-grad" (click)="goShelter()">
-        <ion-icon class="buttonIcon" name="home"></ion-icon>
-        <p style="margin-top: 10px;">İlaç</p>
-      </button>
-      <button class="btn-grad" (click)="goShelter()">
-        <ion-icon class="buttonIcon" name="home"></ion-icon>
-        <p style="margin-top: 10px;">Hastane</p>
-      </button>
-      <button class="btn-grad" (click)="goShelter()">
-        <ion-icon class="buttonIcon" name="home"></ion-icon>
-        <p style="margin-top: 10px;">Hastam Nerede</p>
-      </button>
-      <button class="btn-grad" (click)="goWater()">
-        <ion-icon class="buttonIcon" name="home"></ion-icon>
-        <p style="margin-top: 10px;">Sıvı Dengesi</p>
+    <ion-row class="ion-justify-content-center">
+      <button class="btn-grad" *ngFor="let button of buttonList" (click)="goToPage(button.action)">
+        <ion-icon class="buttonIcon" [name]="button.icon"></ion-icon>
+        <p style="margin-top: 10px;">{{ button.label }}</p>
       </button>
     </ion-row>
   </ion-grid>

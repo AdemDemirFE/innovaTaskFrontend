@@ -1,24 +1,45 @@
 .btn-grad { 
   --background: transparent;
-  background-image: linear-gradient(to right top, #e52d27 0%, #b31217  51%, #e52d27  100%); 
-  margin: 3px; 
-  text-align: center; 
-  text-transform: uppercase; 
-  transition: 0.5s; 
-  color: white; 
-  box-shadow: 0 0 20px #eee; 
-  border-radius: 25px; 
-  margin-bottom: 5px; 
-  padding: 3px; 
-  height: 120px; 
-  width: 120px;  
+  background-image: linear-gradient(
+    to right top,
+    #799c96 0%, 
+    #86a19d 50%, 
+    #9fbbb6 100%
+  );
+  margin: 3px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: white;
+  box-shadow: 0 0 20px rgba(121, 156, 150, 0.6); /* Gölgeyi renk tonuna uygun yaptık */
+  border-radius: 25px;
+  margin-bottom: 5px;
+  padding: 3px;
+  height: 120px;
+  width: 120px;
   font-weight: bold;
-} 
+}
 
-.btn-grad:hover { 
-  background-position: right center; /* change the direction of the change here */ 
-  color: #fff; 
-  text-decoration: none; 
+.btn-grad:hover {
+  background-image: linear-gradient(
+    to right top,
+    #479487 0%, 
+    #86a19d 50%, 
+    #799c96 100%
+  );
+  box-shadow: 0 0 25px rgba(121, 156, 150, 0.8); /* Hover sırasında gölge daha belirgin */
+  transform: scale(1.05); /* Hover ile büyüme efekti */
+}
+
+.btn-grad:active {
+  background-image: linear-gradient(
+    to right top,
+    #86a19d 0%, 
+    #799c96 50%, 
+    #479487 100%
+  );
+  box-shadow: 0 0 15px rgba(72, 148, 135, 0.9); /* Aktif durum gölgesi daha koyu */
+  transform: scale(0.95); /* Aktif durum için küçülme efekti */
 }
 .buttonIcon {
   width: 50px; 
