@@ -86,37 +86,6 @@ ion-content {
   flex-grow: 0;
 }
 
-.subLogo {
-  width: 120px;
-  height: 28px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  margin-bottom: 6px;
-}
-
-.squareCode {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0px;
-  gap: 7px;
-  width: 183px;
-  height: 20px;
-  flex: none;
-  order: 2;
-  flex-grow: 0;
-}
-
-.square {
-  right: -10px;
-  width: 30px;
-  height: 30px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
-
 .squareButton {
   width: 170px;
   height: 20px;
@@ -149,48 +118,8 @@ ion-content {
   flex-grow: 0;
 }
 
-.userName {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0px 15px 0px 11px;
-  width: 352px;
-  height: 45px;
-  background: linear-gradient(
-    270.43deg,
-    rgba(0, 0, 0, 0.11) 1.69%,
-    rgba(53, 53, 53, 0.11) 51.57%,
-    rgba(0, 0, 0, 0.11) 98.42%
-  );
-  box-shadow: inset 0px -1px 0px rgba(255, 251, 251, 0.3),
-    inset 1px 1px 1px rgba(0, 0, 0, 0.13);
-  border-radius: 28px;
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-}
 
-.userNameText {
-  display: flex;
-  // flex-direction: row;
-  // align-items: flex-start;
-  padding: 0px 0px 0px 18px;
-  gap: 10px;
-  width: 305px;
-  height: 20px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  color: #ffffff;
-  margin-left: 15px;
-}
-
-.userNameText::placeholder {
-  top: 15px;
-}
-
-.password {
+.userNamePassword {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -212,10 +141,10 @@ ion-content {
   flex-grow: 0;
 }
 
-.passwordText {
+.userNamePasswordText {
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  // flex-direction: row;
+  // align-items: flex-start;
   padding: 0px 0px 0px 18px;
   gap: 10px;
   width: 305px;
@@ -227,21 +156,8 @@ ion-content {
   margin-left: 15px;
 }
 
-.copyright {
-  width: auto;
-  height: 24px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: rgba(0, 0, 0, 0.55);
-  flex: none;
-  order: 2;
-  flex-grow: 0;
+.userNamePasswordText::placeholder {
+  top: 15px;
 }
 
 .loginButton {
@@ -511,10 +427,7 @@ ion-content {
     flex-grow: 0;
   }
 
-  .userName {
-    width: 279px;
-  }
-  .password {
+  .userNamePassword {
     width: 279px;
   }
 

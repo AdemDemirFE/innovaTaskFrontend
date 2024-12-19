@@ -8,6 +8,10 @@ import { Router } from '@angular/router';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { AuthService } from 'src/providers/service/authService';
 
+import { NotificationService } from 'src/providers/generalServices/NotificationService';
+import { LoadingService } from 'src/providers/generalServices/LoadingService';
+import { AlertService } from 'src/providers/generalServices/AlertService';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -16,63 +20,82 @@ import { AuthService } from 'src/providers/service/authService';
 })
 export class RegisterPage implements OnInit {
 
-  userName: any = "";
-  email: any = "";
-  password: any = "";
-  passwordRepeat: any = "";
+  email: string = '';
+  password: string = '';
+  passwordRepeat: string = '';
   showPassword: boolean = false;
-  showPasswordReapat: boolean = false;
+  showPasswordRepeat: boolean = false;
+  emailValid: boolean = true;
+  passwordValid: boolean = true;
+
   constructor(
     private translate: TranslateService,
-    public loadingController: LoadingController,
-    public modalCtrl: ModalController,
-    public service: Service,
-    public c_Utils: C_Utils,
-    public router : Router,
-		private authService: AuthService,
-    ) { 
-      localStorage.setItem('token', '');
-    }
+    private router: Router,
+    private authService: AuthService,
+    private loadingService: LoadingService,
+    private notificationService: NotificationService
+  ) {}
 
-  ngOnInit() {
-   
-  }
+  ngOnInit() {}
 
   togglePasswordVisibility() {
     this.showPassword = !this.showPassword;
   }
+
   togglePasswordRepeatVisibility() {
-    this.showPasswordReapat = !this.showPasswordReapat;
+    this.showPasswordRepeat = !this.showPasswordRepeat;
   }
-  
+
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    this.emailValid = emailRegex.test(email);
+    return this.emailValid;
+  }
+
+  validatePassword(password: string): boolean {
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&.,])[A-Za-z\d@$!%*?&.,]{6,}$/;
+    this.passwordValid = passwordRegex.test(password);
+    return this.passwordValid;
+  }
 
   async register() {
-    this.translate.get(['REGISTER', 'ERROR', 'PLEASE_WAIT', 'GENERAL']).subscribe(async (values) => {
-      const loading = await this.loadingController.create({
-        message: values.PLEASE_WAIT,
+    if (!this.validateEmail(this.email) || !this.validatePassword(this.password)) {
+      return;
+    }
+
+    const translatedTexts = await this.translate
+      .get([
+        'REGISTER.REGISTER_SUCCESSFULLY',
+        'GENERAL.PLEASE_WAIT',
+        'GENERAL.SERVICE_ERROR',
+      ])
+      .toPromise();
+
+    await this.loadingService.present(translatedTexts['GENERAL.PLEASE_WAIT']);
+    try {
+      const user = await this.authService.register({
+        email: this.email,
+        password: this.password,
       });
-      await loading.present();
-      try {
-        const user = await this.authService.register({ email: this.email, password: this.password });
-        console.log('User registered:', user);
-        await loading.dismiss();
-  
-        this.c_Utils.getToast(values.REGISTER.REGISTER_SUCCESSFULY, 'middle', 3000, false, 'toast-success');
-      } catch (error: any) {
-        await loading.dismiss();
-        this.c_Utils.getToast(values.GENERAL.SERVICE_ERROR, 'top', 3000, false, 'toastClass');
-        console.error('Register error ------>', error.message);
-      }
-    });
+      console.log('User registered:', user);
+
+      this.notificationService.showSuccess(
+        translatedTexts['REGISTER.REGISTER_SUCCESSFULLY'],
+        'middle'
+      );
+      this.router.navigate(['/login']);
+    } catch (error: any) {
+      console.error('Register error:', error);
+      this.notificationService.showError(
+        translatedTexts['GENERAL.SERVICE_ERROR'],
+        'top'
+      );
+    } finally {
+      await this.loadingService.dismiss();
+    }
   }
 
-  login(){
+  login() {
     this.router.navigate(['/login']);
   }
-
-  async close() {
-    await this.modalCtrl.dismiss(null);
-  }
-
 }
-

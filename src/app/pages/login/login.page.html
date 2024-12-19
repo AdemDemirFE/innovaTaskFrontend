@@ -1,59 +1,60 @@
 <ion-content class="responsive-container">
   <ion-col class="mainBody">
-    <ion-row class="logo" (click)="QRCode()"><img src="../../../assets/img/logo.png" /></ion-row>
+    <ion-row class="logo" (click)="QRCode()">
+      <img src="../../../assets/img/logo.png" />
+    </ion-row>
     <ion-row class="card">
       <ion-row class="cardText">
         <ion-grid class="block">
           <ion-row class="logoBar">
             <ion-button class="squareButton" (click)="register()">
-              {{'LOGIN.REGISTER'| translate}}
+              {{ 'LOGIN.REGISTER' | translate }}
             </ion-button>
           </ion-row>
           <ion-row class="textBar">
-            <ion-item class="password">
+            <ion-item class="userNamePassword">
               <ion-input
                 mode="ios"
                 [(ngModel)]="userName"
-                class="userNameText"
                 placeholder="{{ 'LOGIN.USERNAME' | translate }}"
               ></ion-input>
             </ion-item>
-            <ion-item class="password">
+            <ion-item class="userNamePassword">
               <ion-input
                 mode="ios"
                 [(ngModel)]="password"
                 placeholder="{{ 'LOGIN.PASSWORD' | translate }}"
-                type="{{ showPassword ? 'text' : 'password' }}" 
-                class="passwordText"
+                [type]="showPassword ? 'text' : 'password'"
               ></ion-input>
-              <ion-icon name="eye" slot="end" color="{{ showPassword ? 'success' : 'medium' }}" style="cursor: pointer;" (click)="togglePasswordVisibility()"></ion-icon>
+              <ion-icon
+                name="eye"
+                slot="end"
+                [color]="showPassword ? 'success' : 'medium'"
+                style="cursor: pointer;"
+                (click)="togglePasswordVisibility()"
+              ></ion-icon>
             </ion-item>
             <ion-row class="rememberMeandLanguage">
               <ion-col class="rememberMe">
-                  <ion-col class="toggle">
-                      <ion-toggle class="toggleButton" [(ngModel)]="rememberMe" aria-label="Light toggle"
-                          color="light" mode="ios"></ion-toggle>
-                  </ion-col>
-                  <ion-col class="textRemember">{{ 'LOGIN.REMEMBER_ME' | translate }}</ion-col>
-              </ion-col>
-
+                <ion-col class="toggle">
+                    <ion-toggle class="toggleButton" [(ngModel)]="rememberMe" aria-label="Light toggle"
+                        color="light" mode="ios"></ion-toggle>
+                </ion-col>
+                <ion-col class="textRemember">{{ 'LOGIN.REMEMBER_ME' | translate }}</ion-col>
+            </ion-col>
               <ion-col class="languageChoose">
-                <ion-list class="lang">
-                  <ion-select
-                    class="langText"
-                    [(ngModel)]="code"
-                    placeholder="Türkçe(TR)"
-                    cancelText="{{ 'LOGIN.CANCEL' | translate }}"
-                    (ionChange)="changeLanguege()"
-                    okText="{{ 'LOGIN.CHOOSE' | translate }}"
+                <ion-select
+                  [(ngModel)]="code"
+                  (ionChange)="changeLanguege(code)"
+                  placeholder="Türkçe(TR)"
+                >
+                  <ion-select-option
+                    *ngFor="let language of languages"
+                    [value]="language.code"
                   >
-                    <ion-select-option
-                      *ngFor="let language of languages"
-                      value="{{language.code}}"
-                      >{{language.lang}}
-                    </ion-select-option>
-                  </ion-select>
-                </ion-list>
+                    {{ language.lang }}
+                  </ion-select-option>
+                </ion-select>
               </ion-col>
             </ion-row>
           </ion-row>
@@ -61,17 +62,11 @@
       </ion-row>
       <button
         class="loginButton"
-        [disabled]="isButtonDisabled"
+        [disabled]="userName.trim() === '' || password.trim() === ''"
         (click)="login()"
-        [disabled]="userName == '' || password == '' " fill="solid"
       >
-        <ion-text class="textLogin"
-          ><ion-label class="loginText"
-            >{{'LOGIN.LOGIN' | translate}}<ion-icon
-              class="arrow"
-              name="arrow-forward-outline"
-            ></ion-icon></ion-label
-        ></ion-text>
+        {{ 'LOGIN.LOGIN' | translate }}
+        <ion-icon name="arrow-forward-outline"></ion-icon>
       </button>
     </ion-row>
   </ion-col>
