@@ -8,5 +8,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-button expand="full" (click)="openCamera()">Open Camera</ion-button>
-</ion-content>
+  <div class="camera-container">
+    <img *ngIf="capturedImage" [src]="capturedImage" alt="Captured Image" class="captured-image" />
+    <ion-button expand="block" (click)="openCamera()">Open Camera</ion-button>
+  </div></ion-content>

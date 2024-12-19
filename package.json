@@ -21,6 +21,8 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "@ionic-native/camera": "^5.36.0",
+    "@ionic-native/core": "^5.36.0",
     "@ionic/angular": "^8.0.0",
     "@ionic/cordova-builders": "^12.1.2",
     "@ngx-translate/core": "^16.0.4",
@@ -29,7 +31,7 @@
     "firebase": "^11.1.0",
     "innovaTaskFrotend": "file:",
     "ionicons": "^7.0.0",
-    "rxjs": "~7.8.0",
+    "rxjs": "^6.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

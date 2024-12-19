@@ -13,9 +13,9 @@ import { TranslateConfigService } from 'src/translate-config.service';
 import { C_Utils } from '../providers/utils';
 import { Service } from 'src/providers/service/service';
 import { initializeApp } from 'firebase/app';
-import { getAnalytics } from 'firebase/analytics';
 import { environment } from '../environments/environment';
 import { getFirestore } from 'firebase/firestore';
+import { Camera } from '@ionic-native/camera/ngx';
 
 const firebaseApp = initializeApp(environment.firebaseConfig);
 const firestore = getFirestore(firebaseApp);
@@ -29,7 +29,6 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [BrowserModule,
      IonicModule.forRoot(), 
      AppRoutingModule,
-     
      HttpClientModule,
      TranslateModule.forRoot({
       loader: {
@@ -43,6 +42,7 @@ export function createTranslateLoader(http: HttpClient) {
     C_Utils,
     Service,
     TranslateConfigService,
+    Camera,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
