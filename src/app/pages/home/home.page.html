@@ -12,7 +12,7 @@
     <ion-row class="ion-justify-content-center">
       <button class="btn-grad" *ngFor="let button of buttonList" (click)="goToPage(button.action)">
         <ion-icon class="buttonIcon" [name]="button.icon"></ion-icon>
-        <p style="margin-top: 10px;">{{ button.label }}</p>
+        <p style="margin-top: 10px;">{{ button.label | translate }}</p>
       </button>
     </ion-row>
   </ion-grid>

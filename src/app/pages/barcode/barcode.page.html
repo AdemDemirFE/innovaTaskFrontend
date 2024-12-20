@@ -3,26 +3,26 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Barcode Scanner</ion-title>
+    <ion-title>{{ 'BARCODE_SCANNER.TITLE' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="scanner-container">
-    <ion-button expand="block" (click)="startScan()">Scan Barcode</ion-button>
+    <ion-button expand="block" (click)="startScan()">
+      {{ 'BARCODE_SCANNER.SCAN_BUTTON' | translate }}
+    </ion-button>
 
     <div *ngIf="scannedData" class="result-container">
-      <h2>Scanned Data</h2>
+      <h2>{{ 'BARCODE_SCANNER.SCANNED_DATA' | translate }}</h2>
       <ion-card>
         <ion-card-header>
           <ion-card-title>{{ scannedData.format }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p><strong>Data:</strong> {{ scannedData.text }}</p>
+          <p><strong>{{ 'BARCODE_SCANNER.DATA' | translate }}:</strong> {{ scannedData.text }}</p>
         </ion-card-content>
       </ion-card>
     </div>
   </div>
-
-  
 </ion-content>

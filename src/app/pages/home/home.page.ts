@@ -23,10 +23,10 @@ export class HomePage {
 
   };
   buttonList = [
-    { id: 1, label: 'Camera', icon: 'camera', action: 'camera' },
-    { id: 2, label: 'Personel', icon: 'people', action: 'personel' },
-    { id: 3, label: 'Barcode', icon: 'barcode', action: 'barcode' },
-    { id: 4, label: 'Angular Material', icon: 'grid', action: 'material' },
+    { id: 1, label: 'CAMERA.CAMERA', icon: 'camera', action: 'camera' },
+    { id: 2, label: 'BARCODE_SCANNER.TITLE', icon: 'barcode', action: 'barcode' },
+    { id: 3, label: 'PERSONNEL', icon: 'people', action: 'personel' },
+    { id: 4, label: 'CUSTOMER.TITLE', icon: 'grid', action: 'material' },
     { id: 5, label: 'Chart.js', icon: 'stats-chart', action: 'chart' },
   ];
   constructor(

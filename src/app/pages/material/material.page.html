@@ -1,41 +1,95 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>material</ion-title>
+    <ion-title>{{ 'CUSTOMER.TITLE' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openCustomerModal()">
+        <ion-icon name="add-circle"></ion-icon>
+        {{ 'GENERAL.ADD' | translate }}
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="table-container">
-    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-  
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="age">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header>Age</th>
-        <td mat-cell *matCellDef="let element">{{ element.age }}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef>Action</th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="primary">Edit</button>
-          <button mat-raised-button color="warn">Delete</button>
-        </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-searchbar
+        [(ngModel)]="searchText"
+        (keyup)="setSearch()"
+        placeholder="{{ 'GENERAL.SEARCH' | translate }}"
+      ></ion-searchbar>
+    </ion-col>
+  </ion-row>
+
+  <ion-card>
+    <ion-grid>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>#</th>
+          <td mat-cell *matCellDef="let customer">{{ customer.id }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>{{ 'CUSTOMER.NAME' | translate }}</th>
+          <td mat-cell *matCellDef="let customer">{{ customer.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>{{ 'CUSTOMER.EMAIL' | translate }}</th>
+          <td mat-cell *matCellDef="let customer">{{ customer.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>{{ 'GENERAL.ACTIONS' | translate }}</th>
+          <td mat-cell *matCellDef="let customer">
+            <ion-icon
+              name="create"
+              (click)="editCustomer(customer)"
+              color="primary"
+              style="cursor: pointer;"
+            ></ion-icon>
+            <ion-icon
+              name="trash"
+              (click)="deleteCustomer(customer.id)"
+              color="danger"
+              style="cursor: pointer;"
+            ></ion-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </ion-grid>
+  </ion-card>
+
+  <ion-modal #customerModal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ editingCustomer ? 'CUSTOMER.EDIT' : 'CUSTOMER.ADD' | translate }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeCustomerModal()">{{ 'GENERAL.CLOSE' | translate }}</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-item>
+          <ion-label position="floating">{{ 'CUSTOMER.NAME' | translate }}</ion-label>
+          <ion-input [(ngModel)]="selectedCustomer.name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">{{ 'CUSTOMER.EMAIL' | translate }}</ion-label>
+          <ion-input [(ngModel)]="selectedCustomer.email"></ion-input>
+        </ion-item>
+        <ion-button expand="block" (click)="saveCustomer()">
+          {{ editingCustomer ? 'GENERAL.SAVE' : 'GENERAL.ADD' | translate }}
+        </ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

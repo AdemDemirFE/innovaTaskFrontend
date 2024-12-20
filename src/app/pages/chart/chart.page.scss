@@ -1,11 +1,38 @@
-div {
-    background: white;
-  margin: 20px;
+ion-content {
+  --background: #f9f9f9;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.chart-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.chart-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.chart-card h3 {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333333;
 }
 
 canvas {
-    display: block !important;
-    width: auto !important;
-    height: auto !important;
-  }
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

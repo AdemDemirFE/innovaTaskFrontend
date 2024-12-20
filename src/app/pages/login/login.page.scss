@@ -88,18 +88,9 @@ ion-content {
 
 .squareButton {
   width: 170px;
-  height: 20px;
   font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 20px;
   display: flex;
   align-items: center;
-  color: #ffffff;
-  flex: none;
-  order: 2;
-  flex-grow: 0;
   margin: auto;
   --background: transparent;
 }
@@ -168,7 +159,6 @@ ion-content {
   align-items: center;
   padding: 8px 36px;
   gap: 8px;
-  width: 408px;
   height: 45px;
   background: linear-gradient(
       0deg,

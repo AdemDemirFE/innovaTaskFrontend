@@ -8,13 +8,15 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div>
-    <h3>Transport Chart (Bar Chart)</h3>
-    <canvas id="TransportChart"></canvas>
-  </div>
-  
-  <div>
-    <h3>Organ Transplant Chart (Pie Chart)</h3>
-    <canvas id="OrganTransplantChart"></canvas>
+  <div class="chart-container">
+    <div class="chart-card">
+      <h3>Transport Chart (Bar Chart)</h3>
+      <canvas id="TransportChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>Organ Transplant Chart (Pie Chart)</h3>
+      <canvas id="OrganTransplantChart"></canvas>
+    </div>
   </div>
 </ion-content>

@@ -1,10 +1,8 @@
 {
   "LOGOUT": "Çıkış",
   "MY_PROFILE": "Profilim",
-  "HOME_PAGE": "Anasayfa",
+  "HOME": "Anasayfa",
   "USAGE_PAGE": "Çağrılar",
-  "CALL_DETAIL_PAGE": "Çağrı Detay",
-  "DEVICES_PAGE": "Cihazlar",
   "PROFIL_PAGE": "Profil",
   "SELECT_LANG": "Dil Seçiniz",
   "CHANGE_PASSWORD_PAGE": "Şifre Değiştir",
@@ -13,6 +11,12 @@
   "MORE_DATA_IS_BEING_LOADED": "Daha fazla veri yükleniyor...",
   "STATISTICS_PAGE": "İstatistik",
   "PERSONNEL": "PERSONEL",
+  "MENU": {
+    "HOME": "Anasayfa",
+    "PROFILE": "Firebase Profil",
+    "ABOUT_ME": "Hakkımda",
+    "APP_INFO": "Uygulama Bilgileri"
+  },
   "GENERAL": {
     "PLEASE_WAIT": "Lütfen bekleyin...",
     "EXPLANATION": "Açıklama",
@@ -110,6 +114,24 @@
     "CAMERA": "KAMERA",
     "TAKE_PHOTO": "Fotoğraf Çek"
   },
+  "BARCODE_SCANNER": {
+    "TITLE": "Barkod Tarayıcı",
+    "SCAN_BUTTON": "Barkodu Tara",
+    "SCANNED_DATA": "Taranan Veri",
+    "FORMAT": "Format",
+    "DATA": "Veri"
+  },
+  "MATERIAL": {
+    "TITLE": "Materyal",
+    "TABLE": {
+      "ID": "Kimlik",
+      "NAME": "Ad",
+      "AGE": "Yaş",
+      "ACTION": "İşlem",
+      "EDIT": "Düzenle",
+      "DELETE": "Sil"
+    }
+  },
   "APP_INFO": {
     "TITLE": "Uygulama Bilgileri",
     "APP_DETAILS": "Uygulama Detayları",
@@ -167,5 +189,16 @@
     "ENERJI_SKILLS": "HTML, CSS, JavaScript, CRM, ERP, Sistem Yönetimi",
     "HOBBIES": "Hobiler",
     "HOBBIES_LIST": "Kamp yapmak, bisiklete binmek, drone uçurmak, oyun geliştirme ve fotoğraf düzenleme."
-  }
+  },
+  "CUSTOMER": {
+    "TITLE": "Müşteri Yönetimi",
+    "NAME": "Ad",
+    "EMAIL": "E-posta",
+    "ADD": "Yeni Müşteri Ekle",
+    "EDIT": "Müşteri Düzenle",
+    "DELETE": "Müşteri Sil",
+    "SAVE": "Müşteri Kaydet",
+    "CLOSE": "Kapat",
+    "SEARCH": "Müşteri Ara"
+}
 }

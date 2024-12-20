@@ -1,32 +1,65 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { IonModal } from '@ionic/angular';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-material',
   templateUrl: './material.page.html',
   styleUrls: ['./material.page.scss'],
-  standalone: false,
 })
-export class MaterialPage implements OnInit {
-  displayedColumns: string[] = ['id', 'name', 'age', 'action'];
-  
-  ELEMENT_DATA = [
-    { id: 1, name: 'John Doe', age: 25 },
-    { id: 2, name: 'Jane Smith', age: 30 },
-    { id: 3, name: 'Alice Johnson', age: 28 },
-    { id: 4, name: 'Michael Brown', age: 35 },
-    { id: 5, name: 'Emily Davis', age: 22 },
-    { id: 6, name: 'Daniel Wilson', age: 31 },
-    { id: 7, name: 'Sophia Martinez', age: 27 },
-    { id: 8, name: 'Oliver Garcia', age: 29 },
-    { id: 9, name: 'Charlotte Clark', age: 26 },
-    { id: 10, name: 'Liam Lewis', age: 24 },
-  ];
-  dataSource = this.ELEMENT_DATA;
+export class MaterialPage {
+  @ViewChild('customerModal') customerModal!: IonModal;
 
+  displayedColumns: string[] = ['id', 'name', 'email', 'action'];
+  dataSource = new MatTableDataSource([
+    { id: 1, name: 'Adem Demir', email: 'adem.demir@example.com' },
+    { id: 2, name: 'innova', email: 'innova@example.com' },
+  ]);
 
-  constructor() { }
+  searchText = '';
+  selectedCustomer: any = { id: null, name: '', email: '' };
+  editingCustomer = false;
 
-  ngOnInit() {
+  constructor(public translateService: TranslateService) {}
+
+  setSearch(): void {
+    const filterValue = this.searchText.trim().toLowerCase();
+    this.dataSource.filter = filterValue;
   }
 
+  openCustomerModal(customer: any = null): void {
+    this.editingCustomer = !!customer;
+    this.selectedCustomer = customer ? { ...customer } : { id: null, name: '', email: '' };
+    this.customerModal.present();
+  }
+
+
+  closeCustomerModal(): void {
+    this.customerModal.dismiss();
+  }
+
+  saveCustomer(): void {
+    if (this.editingCustomer) {
+      const index = this.dataSource.data.findIndex((c) => c.id === this.selectedCustomer.id);
+      if (index !== -1) {
+        this.dataSource.data[index] = { ...this.selectedCustomer };
+      }
+    } else {
+      const newId = this.dataSource.data.length + 1;
+      this.dataSource.data.push({ id: newId, ...this.selectedCustomer });
+    }
+    this.dataSource._updateChangeSubscription();
+    this.closeCustomerModal();
+  }
+
+
+  editCustomer(customer: any): void {
+    this.openCustomerModal(customer);
+  }
+
+  deleteCustomer(id: number): void {
+    this.dataSource.data = this.dataSource.data.filter((c) => c.id !== id);
+    this.dataSource._updateChangeSubscription();
+  }
 }
