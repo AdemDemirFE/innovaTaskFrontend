@@ -1,16 +1,26 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>video</ion-title>
+    <ion-title>Video Capture</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">video</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="camera-container">
+    <ion-button expand="block" (click)="handleVideoCapture()">Capture/Select Video</ion-button>
+
+    <input
+      type="file"
+      accept="video/*"
+      #fileInput
+      style="display: none"
+      (change)="handleFileInput($event)"
+    />
+  </div>
+
+  <div *ngIf="videoPath">
+    <video [src]="videoPath" controls autoplay width="100%"></video>
+  </div>
 </ion-content>

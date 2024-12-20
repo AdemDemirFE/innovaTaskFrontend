@@ -10,5 +10,14 @@
 <ion-content>
   <div class="camera-container">
     <img *ngIf="capturedImage" [src]="capturedImage" alt="Captured Image" class="captured-image" />
-    <ion-button expand="block" (click)="openCamera()">Open Camera</ion-button>
-  </div></ion-content>
+    <ion-button expand="block" (click)="handleAction()">Take Photo</ion-button>
+
+    <input
+      type="file"
+      accept="image/*"
+      #fileInput
+      style="display: none"
+      (change)="handleFile($event)"
+    />
+  </div>
+</ion-content>

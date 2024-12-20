@@ -22,6 +22,10 @@ import { getFirestore } from 'firebase/firestore';
 import { Camera } from '@ionic-native/camera/ngx';
 import { DemoMaterialModule } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MediaCapture } from '@ionic-native/media-capture/ngx';
+import { File } from '@ionic-native/file/ngx';
+import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+
 // Initialize Firebase App
 const firebaseApp = initializeApp(environment.firebaseConfig);
 const firestore = getFirestore(firebaseApp);
@@ -52,6 +56,9 @@ export function createTranslateLoader(http: HttpClient) {
     Service,
     TranslateConfigService,
     Camera,
+    MediaCapture,
+    File,
+    AndroidPermissions,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
