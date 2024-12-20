@@ -19,8 +19,8 @@ import { account } from '../../pages';
 })
 export class LoginPage implements OnInit {
   appVersion = '1.0.0';
-  userName: string = 'adem.demir.fe@gmail.com';
-  password: string = '123456';
+  userName: string = 'innova.task@adem.com';
+  password: string = 'innova123.';
   rememberMe: boolean = false;
   code = 'en';
   showPassword: boolean = false;
