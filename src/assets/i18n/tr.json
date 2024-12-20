@@ -10,7 +10,6 @@
   "REGISTER_PAGE": "Kayıt Ol",
   "MORE_DATA_IS_BEING_LOADED": "Daha fazla veri yükleniyor...",
   "STATISTICS_PAGE": "İstatistik",
-  "PERSONNEL": "PERSONEL",
   "MENU": {
     "HOME": "Anasayfa",
     "PROFILE": "Firebase Profil",
@@ -50,7 +49,30 @@
     "NOTE": "Not",
     "DELETE_CONFIRM": "Bu kaydı silmek istediğinize emin misiniz?",
     "NAME": "Ad",
-    "POSITION": "Pozisyon"
+    "POSITION": "Pozisyon",
+    "ADD_PERSONNEL": "Personel Ekle",
+    "EDIT_PERSONNEL": "Personel Düzenle",
+    "PERSONNEL_DETAILS": "Personel Detayları",
+    "ADDRESS": "Adres",
+    "ACTIVE": "Aktif",
+    "INACTIVE": "Pasif",
+    "CITY": "Şehir",
+    "DISTRICT": "İlçe",
+    "NEIGHBORHOOD": "Mahalle",
+    "NOTE_REQUIRED": "Not girilmesi zorunludur.",
+    "CITY_REQUIRED": "Şehir seçimi zorunludur.",
+    "DISTRICT_REQUIRED": "İlçe seçimi zorunludur.",
+    "NEIGHBORHOOD_REQUIRED": "Mahalle seçimi zorunludur.",
+    "BIRTH_DATE": "Doğum Tarihi",
+    "FIELD_REQUIRED": "Bu alan zorunludur.",
+    "ACTION": "İşlem",
+    "LOADING": "Yükleniyor...",
+    "ERROR_OCCURRED": "Bir hata oluştu.",
+    "SUCCESS": "Başarılı",
+    "FAILURE": "Başarısız",
+    "CONFIRM_TITLE": "Sil",
+    "CONFIRM_MESSAGE": "Bu kaydı silmek istediğinizden emin misiniz?"
+
   },
   "LOGIN": {
     "LOGIN": "Giriş",
@@ -92,7 +114,11 @@
     "ID_CANNOT_BE_BLANK": "Kimlik boş olamaz",
     "REGISTRATION_FAILED": "Kayıt başarısız oldu",
     "INTERNAL_SERVER_ERROR": "Bir hatayla karşılaşıldı !!",
-    "NOT_CONNECT_SERVER": "Sunucuya bağlanılamıyor !!"
+    "NOT_CONNECT_SERVER": "Sunucuya bağlanılamıyor !!",
+    "ALL_FIELDS_REQUIRED": "Tüm alanlar doldurulmalıdır.",
+    "DELETE_FAILED": "Silme işlemi başarısız oldu.",
+    "SAVE_FAILED": "Kaydetme işlemi başarısız oldu."
+
   },
   "CHANGE_PASSWORD": {
     "PASSWORD_FOR_USER": "Kullanıcısı şifre değiştir",
@@ -147,7 +173,7 @@
     "DESCRIPTION": "Uygulama Açıklaması",
     "DESCRIPTION_TEXT": "InnovaTask, Angular ve Ionic Framework ile geliştirilmiş, modern teknolojilerden faydalanan bir uygulamadır."
   },
-"ABOUT_ME": {
+  "ABOUT_ME": {
     "TITLE": "Hakkımda",
     "PERSONAL_INFO": "Kişisel Bilgiler",
     "NAME": "Ad",
@@ -200,5 +226,23 @@
     "SAVE": "Müşteri Kaydet",
     "CLOSE": "Kapat",
     "SEARCH": "Müşteri Ara"
-}
+  },
+  "PERSONNEL": {
+    "PERSONNEL": "PERSONEL",
+    "ADD": "Yeni Personel Ekle",
+    "EDIT": "Personel Bilgilerini Güncelle",
+    "NAME": "Ad",
+    "POSITION": "Pozisyon",
+    "NOTE": "Not",
+    "IS_ACTIVE": "Durum",
+    "ADDRESS_INFO": "Adres Bilgisi",
+    "BIRTH_DATE": "Doğum Tarihi",
+    "ADD_SUCCESS": "Personel başarıyla eklendi.",
+    "EDIT_SUCCESS": "Personel başarıyla güncellendi.",
+    "DELETE_SUCCESS": "Personel başarıyla silindi.",
+    "SWIPE_FOR_ACTIONS": "İşlemler için yana kaydırın.",
+    "ADDRESS": "Adres",
+    "ACTIVE": "Aktif",
+    "INACTIVE": "Pasif"
+  }
 }

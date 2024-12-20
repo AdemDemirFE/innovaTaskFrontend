@@ -7,32 +7,40 @@ import Chart from 'chart.js/auto';
   styleUrls: ['./chart.page.scss'],
 })
 export class ChartPage implements AfterViewInit {
-  transportChart: Chart | null = null;
-  organTransplantChart: Chart | null = null;
-  defaultMonthCount = 6;
+  personnelChart: Chart | null = null;
+  customerChart: Chart | null = null;
+  salesChart: Chart | null = null;
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      this.createTransportChart();
-      this.createOrganTransplantChart();
+      this.createPersonnelChart();
+      this.createCustomerChart();
+      this.createSalesChart();
     }, 0);
   }
-  private getTransportData() {
+
+  private getPersonnelData() {
     return [
-      { label: 'Car', data: 120 },
-      { label: 'Bike', data: 80 },
-      { label: 'Bus', data: 150 },
-      { label: 'Train', data: 200 },
+      { label: 'Manager', data: 10 },
+      { label: 'Engineer', data: 20 },
+      { label: 'Technician', data: 15 },
+      { label: 'HR', data: 5 },
     ];
   }
 
-  private getOrganTransplantData() {
+  private getCustomerData() {
     return [
-      { label: 'Heart', data: 50 },
-      { label: 'Kidney', data: 70 },
-      { label: 'Liver', data: 30 },
-      { label: 'Lungs', data: 20 },
+      { label: 'New', data: 50 },
+      { label: 'Returning', data: 30 },
+      { label: 'VIP', data: 20 },
     ];
+  }
+
+  private getSalesData() {
+    return {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      data: [5000, 7000, 4000, 9000, 6000, 8000],
+    };
   }
 
   private getSpecificColor(index: number, opacity: number): string {
@@ -45,18 +53,18 @@ export class ChartPage implements AfterViewInit {
     return colors[index % colors.length];
   }
 
-  createTransportChart() {
-    const res = this.getTransportData();
+  createPersonnelChart() {
+    const res = this.getPersonnelData();
     const labels = res.map((d) => d.label);
     const data = res.map((d) => d.data);
     const backgroundColor = data.map((_, index) => this.getSpecificColor(index, 0.2));
     const borderColor = data.map((_, index) => this.getSpecificColor(index, 1));
 
-    if (this.transportChart) {
-      this.transportChart.destroy();
+    if (this.personnelChart) {
+      this.personnelChart.destroy();
     }
 
-    this.transportChart = new Chart('TransportChart', {
+    this.personnelChart = new Chart('PersonnelChart', {
       type: 'bar',
       data: {
         labels: labels,
@@ -71,7 +79,6 @@ export class ChartPage implements AfterViewInit {
       },
       options: {
         responsive: true,
-        aspectRatio: 2.5,
         plugins: {
           legend: { display: false },
         },
@@ -79,18 +86,17 @@ export class ChartPage implements AfterViewInit {
     });
   }
 
-  createOrganTransplantChart() {
-    const res = this.getOrganTransplantData();
+  createCustomerChart() {
+    const res = this.getCustomerData();
     const labels = res.map((d) => d.label);
     const data = res.map((d) => d.data);
     const backgroundColor = data.map((_, index) => this.getSpecificColor(index, 0.2));
-    const borderColor = data.map((_, index) => this.getSpecificColor(index, 1));
 
-    if (this.organTransplantChart) {
-      this.organTransplantChart.destroy();
+    if (this.customerChart) {
+      this.customerChart.destroy();
     }
 
-    this.organTransplantChart = new Chart('OrganTransplantChart', {
+    this.customerChart = new Chart('CustomerChart', {
       type: 'pie',
       data: {
         labels: labels,
@@ -98,17 +104,44 @@ export class ChartPage implements AfterViewInit {
           {
             data: data,
             backgroundColor: backgroundColor,
-            borderColor: borderColor,
-            borderWidth: 1,
           },
         ],
       },
       options: {
         responsive: true,
-        aspectRatio: 2.5,
         plugins: {
-          legend: { display: this.defaultMonthCount <= 6 },
-          tooltip: { enabled: true },
+          legend: { display: true },
+        },
+      },
+    });
+  }
+
+  createSalesChart() {
+    const res = this.getSalesData();
+
+    if (this.salesChart) {
+      this.salesChart.destroy();
+    }
+
+    this.salesChart = new Chart('SalesChart', {
+      type: 'line',
+      data: {
+        labels: res.labels,
+        datasets: [
+          {
+            label: 'Sales',
+            data: res.data,
+            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderWidth: 2,
+            fill: true,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: true },
         },
       },
     });

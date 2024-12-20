@@ -43,8 +43,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/chart/chart.module').then( m => m.ChartPageModule)
   },
   {
-    path: 'personel',
-    loadChildren: () => import('./pages/personel/personel.module').then( m => m.PersonelPageModule)
+    path: 'personnel',
+    loadChildren: () => import('./pages/personnel/personnel.module').then( m => m.PersonnelPageModule)
   },
   {
     path: 'app-info',

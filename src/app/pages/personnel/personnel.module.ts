@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { PersonelPageRoutingModule } from './personel-routing.module';
+import { PersonnelPageRoutingModule } from './personnel-routing.module';
 
-import { PersonelPage } from './personel.page';
+import { PersonnelPage } from './personnel.page';
 import { DemoMaterialModule } from 'src/app/material-module';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -15,10 +15,10 @@ import { TranslateModule } from '@ngx-translate/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    PersonelPageRoutingModule,
+    PersonnelPageRoutingModule,
     TranslateModule.forChild(),
     DemoMaterialModule
   ],
-  declarations: [PersonelPage]
+  declarations: [PersonnelPage]
 })
-export class PersonelPageModule {}
+export class PersonnelPageModule {}

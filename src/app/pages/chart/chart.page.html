@@ -3,20 +3,25 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Chart Page</ion-title>
+    <ion-title>Charts Page</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div class="chart-container">
     <div class="chart-card">
-      <h3>Transport Chart (Bar Chart)</h3>
-      <canvas id="TransportChart"></canvas>
+      <h3>Personnel Chart (Bar Chart)</h3>
+      <canvas id="PersonnelChart"></canvas>
     </div>
 
     <div class="chart-card">
-      <h3>Organ Transplant Chart (Pie Chart)</h3>
-      <canvas id="OrganTransplantChart"></canvas>
+      <h3>Customer Chart (Pie Chart)</h3>
+      <canvas id="CustomerChart"></canvas>
+    </div>
+
+    <div class="chart-card">
+      <h3>Sales Chart (Line Chart)</h3>
+      <canvas id="SalesChart"></canvas>
     </div>
   </div>
 </ion-content>

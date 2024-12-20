@@ -1,9 +1,9 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ 'PERSONNEL' | translate }}</ion-title>
+    <ion-title>{{ 'PERSONNEL.PERSONNEL' | translate }}</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="addEdit('New', null)">{{ 'GENERAL.ADD' | translate }}</ion-button>
     </ion-buttons>
@@ -12,11 +12,19 @@
 
 <ion-content>
   <ion-list>
+    <ion-label>{{ 'PERSONNEL.SWIPE_FOR_ACTIONS' | translate }}</ion-label>
     <ion-item-sliding *ngFor="let person of personnel">
       <ion-item>
         <ion-label>
           <h2>{{ person.name }}</h2>
-          <p>{{ person.position }}</p>
+          <p>{{ 'PERSONNEL.POSITION' | translate }}: {{ person.position }}</p>
+          <p>
+            <strong>{{ 'PERSONNEL.ADDRESS' | translate }}:</strong> 
+            {{ person.city }}, {{ person.district }}, {{ person.neighborhood }}
+          </p>
+          <p>
+            <strong>{{ 'PERSONNEL.NOTE' | translate }}:</strong> {{ person.note }}
+          </p>
         </ion-label>
         <ion-toggle slot="end" [checked]="person.isActive" disabled></ion-toggle>
       </ion-item>
@@ -35,7 +43,7 @@
     <ng-template>
       <ion-header>
         <ion-toolbar>
-          <ion-title>{{ editNew }} {{ 'PERSONNEL' | translate }}</ion-title>
+          <ion-title>{{ editNew }} {{ 'PERSONNEL.PERSONNEL' | translate }}</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="cancel()">{{ 'GENERAL.CANCEL' | translate }}</ion-button>
           </ion-buttons>
@@ -59,8 +67,30 @@
             <ion-label>{{ 'GENERAL.IS_IT_ACTIVE' | translate }}</ion-label>
             <ion-toggle [(ngModel)]="newPerson.isActive"></ion-toggle>
           </ion-item>
+          <ion-item>
+            <ion-label position="stacked">{{ 'GENERAL.CITY' | translate }}</ion-label>
+            <ion-select [(ngModel)]="selectedCity" (ionChange)="loadDistricts()">
+              <ion-select-option *ngFor="let city of cities" [value]="city">{{ city.sehir_title }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf="districts.length > 0">
+            <ion-label position="stacked">{{ 'GENERAL.DISTRICT' | translate }}</ion-label>
+            <ion-select [(ngModel)]="selectedDistrict" (ionChange)="loadNeighborhoods()">
+              <ion-select-option *ngFor="let district of districts" [value]="district">
+                {{ district.ilce_title }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item *ngIf="neighborhoods.length > 0">
+            <ion-label position="stacked">{{ 'GENERAL.NEIGHBORHOOD' | translate }}</ion-label>
+            <ion-select [(ngModel)]="selectedNeighborhood">
+              <ion-select-option *ngFor="let neighborhood of neighborhoods" [value]="neighborhood">
+                {{ neighborhood.mahalle_title }}
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
         </ion-list>
-        <ion-button expand="full" color="success" (click)="saveOrEdit(newPerson.id, null)">
+        <ion-button expand="full" color="success" (click)="saveOrEdit()">
           {{ 'GENERAL.SAVE' | translate }}
         </ion-button>
       </ion-content>
