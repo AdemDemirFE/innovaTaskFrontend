@@ -4,6 +4,7 @@ import { AuthService } from 'src/providers/service/authService';
 import { LoadingService } from 'src/providers/generalServices/LoadingService';
 import { NotificationService } from 'src/providers/generalServices/NotificationService';
 import { TranslateService } from '@ngx-translate/core';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-profile',
@@ -19,7 +20,8 @@ export class ProfilePage implements OnInit {
     private router: Router,
     private loadingService: LoadingService,
     private notificationService: NotificationService,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private menuController: MenuController
   ) {}
 
   ngOnInit() {
@@ -64,5 +66,6 @@ export class ProfilePage implements OnInit {
     } finally {
       await this.loadingService.dismiss();
     }
+    this.menuController.close();
   }
 }

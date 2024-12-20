@@ -27,6 +27,7 @@ export class LoginPage implements OnInit {
 
   languages = Langs;
   account = account;
+  isProcessing = false;
   constructor(
     private router: Router,
     private translateService: TranslateService,
@@ -49,16 +50,23 @@ export class LoginPage implements OnInit {
   }
 
   async login() {
+    if (this.isProcessing) {
+      return; // Halihazırda bir işlem varsa çalıştırmayı durdur
+    }
+  
+    this.isProcessing = true; // İşlemi başlat
+  
     if (this.userName.trim() === '' || this.password.trim() === '') {
       this.notificationService.showError(
         this.translateService.instant('LOGIN.EMPTY_FIELDS'),
         'top'
       );
+      this.isProcessing = false; // İşlem bitirildi
       return;
     }
-
+  
     await this.loadingService.present(this.translateService.instant('GENERAL.PLEASE_WAIT'));
-
+  
     try {
       const user = await this.authService.login({
         email: this.userName,
@@ -69,25 +77,25 @@ export class LoginPage implements OnInit {
         this.translateService.instant('LOGIN.LOGIN_SUCCESS'),
         'middle'
       );
-
+  
       this.navCtrl.navigateForward('/home');
     } catch (error: any) {
       console.error('Login error:', error);
-
+  
       this.notificationService.showError(
         this.translateService.instant('LOGIN.LOGIN_FAILED'),
         'top'
       );
-
+  
       await this.alertService.presentAlert(
         this.translateService.instant('LOGIN.LOGIN_FAILED'),
         this.translateService.instant('LOGIN.CHECK_CREDENTIALS')
       );
     } finally {
+      this.isProcessing = false; // İşlem bitirildi
       await this.loadingService.dismiss();
     }
   }
-
   changeLanguege(langCode: string) {
     this.translateService.use(langCode);
     localStorage.setItem('selectLang', langCode);

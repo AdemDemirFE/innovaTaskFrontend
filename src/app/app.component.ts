@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslateConfigService } from 'src/translate-config.service';
 import { GeneralSettings } from './pages';
-import { NavController } from '@ionic/angular';
+import { MenuController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/providers/service/authService';
 import { LoadingService } from 'src/providers/generalServices/LoadingService';
 import { NotificationService } from 'src/providers/generalServices/NotificationService';
@@ -34,7 +34,8 @@ export class AppComponent {
     private navCtrl: NavController,
     private authService: AuthService,
     private loadingService: LoadingService,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+    private menuController: MenuController
   ) {
     this.translateService.setDefaultLang(this.code);
     this.translateService.use(this.code);
@@ -70,5 +71,6 @@ export class AppComponent {
     } finally {
       await this.loadingService.dismiss();
     }
+    this.menuController.close();
   }
 }
