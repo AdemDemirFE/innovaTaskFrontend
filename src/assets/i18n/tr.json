@@ -71,8 +71,8 @@
     "SUCCESS": "Başarılı",
     "FAILURE": "Başarısız",
     "CONFIRM_TITLE": "Sil",
-    "CONFIRM_MESSAGE": "Bu kaydı silmek istediğinizden emin misiniz?"
-
+    "CONFIRM_MESSAGE": "Bu kaydı silmek istediğinizden emin misiniz?",
+    "ACTIONS": "İşlemler"
   },
   "LOGIN": {
     "LOGIN": "Giriş",

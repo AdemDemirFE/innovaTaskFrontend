@@ -5,6 +5,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
+  updateEmail,
+  updatePassword,
   User,
 } from 'firebase/auth';
 import { environment } from 'src/environments/environment';
@@ -49,6 +52,10 @@ export class AuthService {
     }
   }
 
+  /**
+   * Oturum Açmış Kullanıcıyı Getir
+   * @returns Mevcut kullanıcı
+   */
   getUser(): User | null {
     return this.auth.currentUser;
   }
@@ -62,6 +69,56 @@ export class AuthService {
       console.log('Logout successful');
     } catch (error) {
       console.error('Logout Error:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Kullanıcı Bilgilerini Güncelle
+   * @param displayName Yeni isim
+   * @returns Güncellenmiş kullanıcı
+   */
+  async updateDisplayName(displayName: string): Promise<void> {
+    const user = this.auth.currentUser;
+    if (!user) throw new Error('No user is logged in');
+    try {
+      await updateProfile(user, { displayName });
+      console.log('Display name updated:', displayName);
+    } catch (error) {
+      console.error('Error updating display name:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Kullanıcı E-posta Güncelleme
+   * @param email Yeni e-posta
+   * @returns Güncellenmiş kullanıcı
+   */
+  async updateEmail(email: string): Promise<void> {
+    const user = this.auth.currentUser;
+    if (!user) throw new Error('No user is logged in');
+    try {
+      await updateEmail(user, email);
+      console.log('Email updated:', email);
+    } catch (error) {
+      console.error('Error updating email:', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Kullanıcı Şifre Güncelleme
+   * @param password Yeni şifre
+   */
+  async updatePassword(password: string): Promise<void> {
+    const user = this.auth.currentUser;
+    if (!user) throw new Error('No user is logged in');
+    try {
+      await updatePassword(user, password);
+      console.log('Password updated');
+    } catch (error) {
+      console.error('Error updating password:', error);
       throw error;
     }
   }
