@@ -40,7 +40,6 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Dil seçimini kontrol et ve uygula
     const selectedLang = localStorage.getItem('selectLang') || 'en';
     this.changeLanguege(selectedLang);
   }
@@ -71,7 +70,6 @@ export class LoginPage implements OnInit {
         'middle'
       );
 
-      // Giriş başarılıysa yönlendirme
       this.navCtrl.navigateForward('/home');
     } catch (error: any) {
       console.error('Login error:', error);

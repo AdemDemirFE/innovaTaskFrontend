@@ -15,7 +15,6 @@ import { IonicSlides } from '@ionic/angular';
 
 export class HomePage {
 
-  // @ViewChild('slideWithNav', { static: false }) slideWithNav: IonicSlides | undefined;
   sliderOne: any;
   slideOptsOne = {
     initialSlide: 0,
@@ -25,9 +24,9 @@ export class HomePage {
   };
   buttonList = [
     { id: 1, label: 'Camera', icon: 'camera', action: 'camera' },
-    { id: 2, label: 'Barcode', icon: 'barcode', action: 'barcode' },
-    { id: 3, label: 'Angular Material', icon: 'grid', action: 'material' },
-    { id: 4, label: 'Video', icon: 'videocam', action: 'video' },
+    { id: 2, label: 'Video', icon: 'videocam', action: 'video' },
+    { id: 3, label: 'Barcode', icon: 'barcode', action: 'barcode' },
+    { id: 4, label: 'Angular Material', icon: 'grid', action: 'material' },
     { id: 5, label: 'Chart.js', icon: 'stats-chart', action: 'chart' },
   ];
   constructor(
@@ -42,8 +41,6 @@ export class HomePage {
     public http: HttpClient,
     public router: Router
   ) {
-  }
-  ngOnInit() {
   }
   
   ionViewDidEnter() {

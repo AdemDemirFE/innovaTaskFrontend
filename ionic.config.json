@@ -1,11 +1,7 @@
 {
-  "name": "innovaTaskFrotend",
+  "name": "InnovaTask",
   "integrations": {
     "cordova": {}
-  },
-  "compilerOptions": {
-    "typeRoots": ["node_modules/@types"],
-    "types": ["node", "firebase"]
   },
   "type": "angular"
 }

@@ -1,24 +1,7 @@
-/**
- * Uygulama içerisindeki Dinamik Renk Tanımlarını İçerir.
- */
-export let genelStyle: any = {
+export const appVersion = "1.0.0";
 
-
-};
-
-export const appVersion = "2.3.6";
-
-export const appCode = "TELE-DGT"; // akgun-mobile tarafında tanımlı yetki grubu, yetkiler,
-
-export let homePersonelPage = "/home-personel";
- 
+export const appCode = "InnovaApp";
 export let contactType: number[] = [];
-
-/**
- *Order Tedavi Planlarını içerisinde Tutar
- */
-
-export let personelType: any = "hasta";
 
 
 export let isAndroid: boolean[] = [false];

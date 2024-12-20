@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.page.html',
@@ -25,10 +24,10 @@ export class CameraPage implements OnInit {
     };
 
     this.camera.getPicture(options).then(
-      (imageData) => {
+      (imageData: any) => {
         this.capturedImage = 'data:image/jpeg;base64,' + imageData;
       },
-      (err) => {
+      (err: any) => {
         console.error('Camera issue:', err);
       }
     );
