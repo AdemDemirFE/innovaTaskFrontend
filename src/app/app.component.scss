@@ -18,12 +18,12 @@
       transition: all 0.3s ease-in-out;
 
       ion-icon {
-        color: #e91d1d;
+        color: #799c96;
         margin-right: 10px;
       }
 
       &:hover {
-        --ion-background-color: #e91d1d;
+        --ion-background-color: #799c96;
         color: #ffffff;
         ion-icon {
           color: #ffffff;
@@ -36,7 +36,12 @@
 .menu-header-bg {
   height: 200px;
   width: 100%;
-  background: linear-gradient(90deg, #ff2400 40%, #e91d1d 60%);
+  background: linear-gradient(
+    to right top,
+    #799c96 0%, 
+    #86a19d 50%, 
+    #9fbbb6 100%
+  );
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   transform: rotate(-5deg);
   border-radius: 0 0 30px 30px;

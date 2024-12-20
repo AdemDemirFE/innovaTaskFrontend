@@ -65,6 +65,7 @@
     "shelljs": "^0.8.5",
     "signature_pad": "^5.0.3",
     "sw-toolbox": "^3.6.0",
+    "swiper": "^11.1.15",
     "tslib": "^2.3.0",
     "xlsx": "^0.18.5",
     "zone.js": "~0.14.2"

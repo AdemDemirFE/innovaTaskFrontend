@@ -18,8 +18,8 @@ export class AppComponent {
   menuItems = [
     { name: 'Home', url: '/home', icon: 'home' },
     { name: 'Profile', url: '/profile', icon: 'person' },
-    { name: 'Settings', url: '/settings', icon: 'settings' },
-    { name: 'About', url: '/about', icon: 'information-circle' },
+    { name: 'About Me', url: '/about-me', icon: 'person' },
+    { name: 'App Info', url: '/app-info', icon: 'information-circle' },
   ];
 
   constructor(

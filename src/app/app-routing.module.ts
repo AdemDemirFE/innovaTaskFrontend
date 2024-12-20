@@ -41,7 +41,22 @@ const routes: Routes = [
   {
     path: 'chart',
     loadChildren: () => import('./pages/chart/chart.module').then( m => m.ChartPageModule)
+  },
+  {
+    path: 'personel',
+    loadChildren: () => import('./pages/personel/personel.module').then( m => m.PersonelPageModule)
+  },
+  {
+    path: 'app-info',
+    loadChildren: () => import('./pages/app-info/app-info.module').then( m => m.AppInfoPageModule)
+  },
+  {
+    path: 'about-me',
+    loadChildren: () => import('./pages/about-me/about-me.module').then( m => m.AboutMePageModule)
   }
+
+
+
 
 
 

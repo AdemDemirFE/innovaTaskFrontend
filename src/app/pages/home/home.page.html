@@ -8,34 +8,6 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-grid style="margin-bottom: 5px; margin-top: 5px;">
-    <!-- <ion-slides pager="true" [options]="slideOptsOne" #slideWithNav
-      (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
-      <ion-slide style="align-items: center;">
-        <div style="align-items: center;">
-          <ion-card class="haber" button>
-            <div>
-              <ion-img style="width:100% !important; height: 50% !important; " src="assets/img/logo.png"></ion-img>
-            </div>
-            <ion-card class="overlay">
-              <div style="text-align: left;">
-                <h2>
-                  Başlık
-                </h2>
-                <ion-badge style="background-color: #921c1ca2;">
-                  <h3>
-                    Tarih
-                  </h3>
-                </ion-badge>
-              </div>
-            </ion-card>
-          </ion-card>
-        </div>
-      </ion-slide>
-    </ion-slides> -->
-  </ion-grid>
-
   <ion-grid style="margin-bottom: 10px;">
     <ion-row class="ion-justify-content-center">
       <button class="btn-grad" *ngFor="let button of buttonList" (click)="goToPage(button.action)">

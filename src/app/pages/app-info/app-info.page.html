@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button class="menuBtn"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'APP_INFO.TITLE' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ 'APP_INFO.APP_DETAILS' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>{{ 'APP_INFO.NAME' | translate }}:</strong> InnovaTask</p>
+      <p><strong>{{ 'APP_INFO.VERSION' | translate }}:</strong> 0.0.1</p>
+      <p><strong>{{ 'APP_INFO.AUTHOR' | translate }}:</strong> Ionic Framework</p>
+      <p><strong>{{ 'APP_INFO.PROJECT_GITHUB_ADDRESS' | translate }}:</strong> <a href="https://github.com/AdemDemirFE/innovaTaskFrotend" target="_blank">Innova Task Frontend</a></p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ 'APP_INFO.TECHNOLOGIES' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>{{ 'APP_INFO.IONIC_VERSION' | translate }}:</strong> 8.2.7</p>
+      <p><strong>{{ 'APP_INFO.ANGULAR_VERSION' | translate }}:</strong> 18.0.0</p>
+      <p><strong>{{ 'APP_INFO.FIREBASE_VERSION' | translate }}:</strong> 11.1.0</p>
+      <p><strong>{{ 'APP_INFO.RXJS_VERSION' | translate }}:</strong> 7.8.0</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ 'APP_INFO.DESCRIPTION' | translate }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ 'APP_INFO.DESCRIPTION_TEXT' | translate }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

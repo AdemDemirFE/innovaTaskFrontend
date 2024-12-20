@@ -24,7 +24,7 @@ export class HomePage {
   };
   buttonList = [
     { id: 1, label: 'Camera', icon: 'camera', action: 'camera' },
-    { id: 2, label: 'Video', icon: 'videocam', action: 'video' },
+    { id: 2, label: 'Personel', icon: 'people', action: 'personel' },
     { id: 3, label: 'Barcode', icon: 'barcode', action: 'barcode' },
     { id: 4, label: 'Angular Material', icon: 'grid', action: 'material' },
     { id: 5, label: 'Chart.js', icon: 'stats-chart', action: 'chart' },

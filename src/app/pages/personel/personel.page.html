@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'PERSONNEL' | translate }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="addEdit('New', null)">{{ 'GENERAL.ADD' | translate }}</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let person of personnel">
+      <ion-item>
+        <ion-label>
+          <h2>{{ person.name }}</h2>
+          <p>{{ person.position }}</p>
+        </ion-label>
+        <ion-toggle slot="end" [checked]="person.isActive" disabled></ion-toggle>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="secondary" (click)="addEdit('Edit', person)">
+          <ion-icon slot="start" name="create"></ion-icon>{{ 'GENERAL.EDIT' | translate }}
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="deleteAlert(person)">
+          <ion-icon slot="start" name="trash"></ion-icon>{{ 'GENERAL.DELETE' | translate }}
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-modal #modal>
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ editNew }} {{ 'PERSONNEL' | translate }}</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="cancel()">{{ 'GENERAL.CANCEL' | translate }}</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item>
+            <ion-label position="floating">{{ 'GENERAL.NAME' | translate }}</ion-label>
+            <ion-input [(ngModel)]="newPerson.name"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">{{ 'GENERAL.POSITION' | translate }}</ion-label>
+            <ion-input [(ngModel)]="newPerson.position"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">{{ 'GENERAL.NOTE' | translate }}</ion-label>
+            <ion-input [(ngModel)]="newPerson.note"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>{{ 'GENERAL.IS_IT_ACTIVE' | translate }}</ion-label>
+            <ion-toggle [(ngModel)]="newPerson.isActive"></ion-toggle>
+          </ion-item>
+        </ion-list>
+        <ion-button expand="full" color="success" (click)="saveOrEdit(newPerson.id, null)">
+          {{ 'GENERAL.SAVE' | translate }}
+        </ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
