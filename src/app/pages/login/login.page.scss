@@ -139,6 +139,7 @@ ion-content {
   order: 1;
   align-self: stretch;
   flex-grow: 0;
+  color: white;
 }
 
 .userNamePasswordText {
@@ -183,6 +184,7 @@ ion-content {
   order: 1;
   align-self: stretch;
   flex-grow: 0;
+  color: white;
 }
 
 .logo {
@@ -272,6 +274,7 @@ ion-content {
   flex-grow: 0;
   background: transparent;
   margin-top: 13px;
+  color: white;
 }
 
 .lang {
@@ -407,7 +410,7 @@ ion-content {
     flex: none;
     order: 0;
     flex-grow: 0;
-
+    color: white;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 10px;
