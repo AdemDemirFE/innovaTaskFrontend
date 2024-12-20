@@ -22,6 +22,7 @@ import { MediaCapture } from '@ionic-native/media-capture/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 const firebaseApp = initializeApp(environment.firebaseConfig);
 const firestore = getFirestore(firebaseApp);
@@ -55,6 +56,7 @@ export function createTranslateLoader(http: HttpClient) {
     File,
     AndroidPermissions,
     BarcodeScanner,
+    InAppBrowser,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
