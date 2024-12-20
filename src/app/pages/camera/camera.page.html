@@ -3,14 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>Camera</ion-title>
+    <ion-title>{{'CAMERA.CAMERA' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="camera-container">
     <img *ngIf="capturedImage" [src]="capturedImage" alt="Captured Image" class="captured-image" />
-    <ion-button expand="block" (click)="handleAction()">Take Photo</ion-button>
+    <ion-button expand="block" (click)="handleAction()">{{ 'CAMERA.TAKE_PHOTO' | translate}}</ion-button>
 
     <input
       type="file"

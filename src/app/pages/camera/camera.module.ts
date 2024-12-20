@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { CameraPageRoutingModule } from './camera-routing.module';
 
 import { CameraPage } from './camera.page';
-
+import { TranslateModule } from '@ngx-translate/core';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CameraPageRoutingModule
+    CameraPageRoutingModule,
+    TranslateModule.forChild()
   ],
   declarations: [CameraPage]
 })

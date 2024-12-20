@@ -1,16 +1,25 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
-    <ion-title>barcode</ion-title>
+    <ion-title>Barcode Scanner</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">barcode</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="scanner-container">
+    <ion-button expand="block" (click)="startScan()">Scan Barcode</ion-button>
+
+    <div *ngIf="scannedData" class="result-container">
+      <h2>Scanned Data</h2>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{ scannedData.format }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Data:</strong> {{ scannedData.text }}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  
 </ion-content>

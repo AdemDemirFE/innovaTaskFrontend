@@ -99,5 +99,9 @@
     "CREATED_AT": "Oluşturulma Tarihi",
     "LAST_LOGIN": "Son Giriş",
     "LOGOUT": "Çıkış Yap"
+  },
+  "CAMERA": {
+    "CAMERA": "KAMERA",
+    "TAKE_PHOTO": "Fotoğraf Çek"
   }
 }

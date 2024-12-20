@@ -3,14 +3,18 @@
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>chart</ion-title>
+    <ion-title>Chart Page</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">chart</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div>
+    <h3>Transport Chart (Bar Chart)</h3>
+    <canvas id="TransportChart"></canvas>
+  </div>
+  
+  <div>
+    <h3>Organ Transplant Chart (Pie Chart)</h3>
+    <canvas id="OrganTransplantChart"></canvas>
+  </div>
 </ion-content>

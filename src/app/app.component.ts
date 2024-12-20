@@ -36,11 +36,8 @@ export class AppComponent {
   }
 
   goToPage(url: string) {
-    this.navCtrl.navigateForward(url); // İleriye yönlendirme
+    this.navCtrl.navigateForward(url);
   }
 
-  ngOnInit(){
-
-  }
 
 }

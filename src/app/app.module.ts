@@ -12,25 +12,19 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateConfigService } from 'src/translate-config.service';
 import { C_Utils } from '../providers/utils';
 import { Service } from 'src/providers/service/service';
-
-// Firebase
 import { initializeApp } from 'firebase/app';
 import { environment } from '../environments/environment';
 import { getFirestore } from 'firebase/firestore';
-
-// Ionic Native Plugins
 import { Camera } from '@ionic-native/camera/ngx';
 import { DemoMaterialModule } from './material-module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MediaCapture } from '@ionic-native/media-capture/ngx';
 import { File } from '@ionic-native/file/ngx';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
-// Initialize Firebase App
 const firebaseApp = initializeApp(environment.firebaseConfig);
 const firestore = getFirestore(firebaseApp);
-
-// Translate Loader Function
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
@@ -40,6 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    DemoMaterialModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     HttpClientModule,
@@ -59,6 +54,7 @@ export function createTranslateLoader(http: HttpClient) {
     MediaCapture,
     File,
     AndroidPermissions,
+    BarcodeScanner,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
   bootstrap: [AppComponent],
