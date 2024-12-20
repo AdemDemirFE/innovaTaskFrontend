@@ -96,7 +96,7 @@ personnel = [
   async deleteAlert(person: any): Promise<void> {
     await this.alertService.presentConfirm(
       'GENERAL.CONFIRM_TITLE',
-      `GENERAL.CONFIRM_MESSAGE ${person.name}?`,
+      `GENERAL.DELETE_CONFIRM ${person.name}?`,
       () => {
         this.personnel = this.personnel.filter((p) => p !== person);
       }
