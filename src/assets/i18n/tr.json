@@ -163,7 +163,7 @@
     "APP_DETAILS": "Uygulama Detayları",
     "NAME": "Uygulama Adı",
     "VERSION": "Sürüm",
-    "AUTHOR": "Yazar",
+    "FRAMEWORK": "Çatı",
     "PROJECT_GITHUB_ADDRESS": "Proje GitHub Adresi",
     "TECHNOLOGIES": "Kullanılan Teknolojiler",
     "IONIC_VERSION": "Ionic Sürümü",

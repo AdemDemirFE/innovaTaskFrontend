@@ -162,7 +162,7 @@
     "APP_DETAILS": "App Details",
     "NAME": "App Name",
     "VERSION": "Version",
-    "AUTHOR": "Author",
+    "FRAMEWORK": "Framework",
     "PROJECT_GITHUB_ADDRESS": "Project GitHub Address",
     "TECHNOLOGIES": "Technologies Used",
     "IONIC_VERSION": "Ionic Version",
