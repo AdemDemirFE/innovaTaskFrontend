@@ -36,13 +36,9 @@
             ],
             "styles": [
               "src/global.scss",
-              "src/theme/variables.scss",
-              "src/styles.scss",
-              "node_modules/webdatarocks/webdatarocks.min.css"            
+              "src/theme/variables.scss"
             ],
-            "scripts": [
-              "node_modules/webdatarocks/webdatarocks.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
