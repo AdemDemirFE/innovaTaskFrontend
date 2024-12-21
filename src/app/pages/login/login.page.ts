@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
   userName: string = 'innova.task@adem.com';
   password: string = 'innova123.';
   rememberMe: boolean = false;
-  code = 'en';
+  code = 'tr';
   showPassword: boolean = false;
 
   languages = Langs;
@@ -41,7 +41,7 @@ export class LoginPage implements OnInit {
   ) {}
 
   ngOnInit() {
-    const selectedLang = localStorage.getItem('selectLang') || 'en';
+    const selectedLang = localStorage.getItem('selectLang') || 'tr';
     this.changeLanguege(selectedLang);
   }
 

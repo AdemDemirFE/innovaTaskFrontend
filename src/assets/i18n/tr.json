@@ -171,7 +171,8 @@
     "FIREBASE_VERSION": "Firebase Sürümü",
     "RXJS_VERSION": "RxJS Sürümü",
     "DESCRIPTION": "Uygulama Açıklaması",
-    "DESCRIPTION_TEXT": "InnovaTask, Angular ve Ionic Framework ile geliştirilmiş, modern teknolojilerden faydalanan bir uygulamadır."
+    "DESCRIPTION_TEXT": "InnovaTask, Angular ve Ionic Framework ile geliştirilmiş, modern teknolojilerden faydalanan bir uygulamadır.",
+    "LIBRARIES": "Kullanılan Kütüphanele"
   },
   "ABOUT_ME": {
     "TITLE": "Hakkımda",

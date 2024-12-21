@@ -14,14 +14,9 @@
     </ion-card-header>
     <ion-card-content>
       <p><strong>{{ 'ABOUT_ME.NAME' | translate }}:</strong> Adem Demir</p>
-      <p><strong>{{ 'ABOUT_ME.EMAIL' | translate }}:</strong> <a href="mailto:adem.demir.fe&#64;gmail.com">adem.demir.fe&#64;gmail.com</a></p>
+      <p><strong>{{ 'ABOUT_ME.EMAIL' | translate }}:</strong> <a (click)="openUrl('mailto:adem.demir.fe@gmail.com')">adem.demir.fe&#64;gmail.com</a></p>
       <p><strong>{{ 'ABOUT_ME.PHONE' | translate }}:</strong> +90 506 180 21 28</p>
-      <!-- <p><strong>{{ 'ABOUT_ME.CV' | translate }}:</strong> 
-        <a href="assets/ADEM_DEMIR_CV.pdf" target="_blank" download>
-          {{ 'ABOUT_ME.DOWNLOAD_CV' | translate }}
-        </a>
-      </p> -->
-      <p><strong>{{ 'ABOUT_ME.WEBSITE' | translate }}:</strong> <a href="https://incomparable-babka-53fdb9.netlify.app/" target="_blank">My Portfolio</a></p>
+      <p><strong>{{ 'ABOUT_ME.WEBSITE' | translate }}:</strong> <a (click)="openUrl('https://incomparable-babka-53fdb9.netlify.app/')">My Portfolio</a></p>
       <p><strong>{{ 'ABOUT_ME.ADDRESS' | translate }}:</strong> Etimesgut, Ankara</p>
     </ion-card-content>
   </ion-card>
@@ -31,11 +26,10 @@
       <ion-card-title>{{ 'ABOUT_ME.SOCIAL_MEDIA' | translate }}</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      
-      <p (click)="openUrl('https://github.com/AdemDemirFE')"><strong>{{ 'ABOUT_ME.GITHUB' | translate }}:</strong> github.com/AdemDemirFE</p>
-      <p><strong>{{ 'ABOUT_ME.LINKEDIN' | translate }}:</strong> <a href="https://www.linkedin.com/in/ademdemirfe" target="_blank">linkedin.com/in/ademdemirfe</a></p>
-      <p><strong>{{ 'ABOUT_ME.TWITTER' | translate }}:</strong> <a href="https://twitter.com/adem_demir_fe" target="_blank">&#64;adem_demir_fe</a></p>
-      <p><strong>{{ 'ABOUT_ME.INSTAGRAM' | translate }}:</strong> <a href="https://instagram.com/adem.fe.23" target="_blank">&#64;adem.fe.23</a></p>
+      <p><strong>{{ 'ABOUT_ME.GITHUB' | translate }}:</strong> <a (click)="openUrl('https://github.com/AdemDemirFE')">github.com/AdemDemirFE</a></p>
+      <p><strong>{{ 'ABOUT_ME.LINKEDIN' | translate }}:</strong> <a (click)="openUrl('https://www.linkedin.com/in/ademdemirfe')">linkedin.com/in/ademdemirfe</a></p>
+      <p><strong>{{ 'ABOUT_ME.TWITTER' | translate }}:</strong> <a (click)="openUrl('https://twitter.com/adem_demir_fe')">&#64;adem_demir_fe</a></p>
+      <p><strong>{{ 'ABOUT_ME.INSTAGRAM' | translate }}:</strong> <a (click)="openUrl('https://instagram.com/adem.fe.23')">&#64;adem.fe.23</a></p>
     </ion-card-content>
   </ion-card>
 
@@ -92,7 +86,6 @@
   </ion-card>
   
 
-  <!-- Hobi ve İlgi Alanları -->
   <ion-card>
     <ion-card-header>
       <ion-card-title>{{ 'ABOUT_ME.HOBBIES' | translate }}</ion-card-title>
