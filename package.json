@@ -69,7 +69,8 @@
     "swiper": "^11.1.15",
     "tslib": "^2.3.0",
     "xlsx": "^0.18.5",
-    "zone.js": "~0.14.2"
+    "zone.js": "~0.14.2",
+    "ng-webdatarocks": "^1.4.6"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.0",

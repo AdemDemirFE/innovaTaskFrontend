@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>webDataRocksExample</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-wbr-pivot #pivot1 id="pivot1" [toolbar]="true" [width]="'100%'" [height]="750" [customizeCell]="onCustomizeCell"
+    (reportcomplete)="onReportComplete()">
+    WebDataRocks will appear here / ANGULAR versionu desteklemiyor :/
+  </app-wbr-pivot>
+
+  <!-- <webdatarocks #pivot1 id="pivot1" [toolbar]="true" [width]="'100%'" [height]="'750px'" 
+  [customizeCell]="onCustomizeCell" 
+  (ready)="onPivotReady($event)" 
+  (reportcomplete)="onReportComplete()">
+</webdatarocks> -->
+</ion-content>

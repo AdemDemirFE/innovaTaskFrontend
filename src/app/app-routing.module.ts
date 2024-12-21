@@ -53,7 +53,12 @@ const routes: Routes = [
   {
     path: 'about-me',
     loadChildren: () => import('./pages/about-me/about-me.module').then( m => m.AboutMePageModule)
+  },
+  {
+    path: 'web-data-rocks-example',
+    loadChildren: () => import('./pages/web-data-rocks-example/web-data-rocks-example.module').then( m => m.WebDataRocksExamplePageModule)
   }
+
 
 
 
