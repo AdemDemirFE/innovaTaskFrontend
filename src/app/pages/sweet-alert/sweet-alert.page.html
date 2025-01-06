@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>SweetAlert Examples</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid style="margin-bottom: 10px;">
+    <ion-row class="ion-justify-content-center">
+      <button class="btn-grad" *ngFor="let alert of alertList" (click)="showAlert(alert.action)">
+        <ion-icon class="buttonIcon" [name]="alert.icon"></ion-icon>
+        <p style="margin-top: 10px;">{{ alert.name | translate }}</p>
+      </button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

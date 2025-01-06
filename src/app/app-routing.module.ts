@@ -57,7 +57,12 @@ const routes: Routes = [
   {
     path: 'web-data-rocks-example',
     loadChildren: () => import('./pages/web-data-rocks-example/web-data-rocks-example.module').then( m => m.WebDataRocksExamplePageModule)
+  },
+  {
+    path: 'sweet-alert',
+    loadChildren: () => import('./pages/sweet-alert/sweet-alert.module').then( m => m.SweetAlertPageModule)
   }
+
 
 
 

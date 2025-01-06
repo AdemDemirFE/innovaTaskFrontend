@@ -10,6 +10,7 @@ import { NotificationService } from 'src/providers/generalServices/NotificationS
 import { LoadingService } from 'src/providers/generalServices/LoadingService';
 import { AlertService } from 'src/providers/generalServices/AlertService';
 import { account } from '../../pages';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -40,6 +41,35 @@ export class LoginPage implements OnInit {
     public C_Utils: C_Utils
   ) {}
 
+  showSuccessMessage() {
+    Swal.fire({
+      title: 'Good job!',
+      text: 'Başarıyla giriş yapabildiniz!',
+      icon: 'success',
+      backdrop: false,
+      position: "top-end",
+      // confirmButtonText: 'OK',
+      customClass: {
+        popup: 'swal-popup-custom'
+      },
+      showClass: {
+        popup: `
+          animate__animated
+          animate__fadeInUp
+          animate__faster
+        `
+      },
+      hideClass: {
+        popup: `
+          animate__animated
+          animate__fadeOutDown
+          animate__faster
+        `
+      }
+    });
+  }
+
+  
   ngOnInit() {
     const selectedLang = localStorage.getItem('selectLang') || 'tr';
     this.changeLanguege(selectedLang);
@@ -73,6 +103,7 @@ export class LoginPage implements OnInit {
         password: this.password,
       });
       console.log('User logged in:', user);
+      this.showSuccessMessage();
       this.notificationService.showSuccess(
         this.translateService.instant('LOGIN.LOGIN_SUCCESS'),
         'middle'

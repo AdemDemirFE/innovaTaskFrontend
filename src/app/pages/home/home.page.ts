@@ -28,7 +28,8 @@ export class HomePage {
     { id: 3, label: 'PERSONNEL.PERSONNEL', icon: 'people', action: 'personnel' },
     { id: 4, label: 'CUSTOMER.TITLE', icon: 'grid', action: 'material' },
     { id: 5, label: 'Chart.js', icon: 'stats-chart', action: 'chart' },
-    { id: 5, label: 'Webdatarocks', icon: 'stats-chart', action: 'web-data-rocks-example' },
+    { id: 6, label: 'Webdatarocks', icon: 'stats-chart', action: 'web-data-rocks-example' },
+    { id: 7, label: 'Sweet Alert', icon: 'checkmark-circle', action: 'sweet-alert' },
   ];
   constructor(
     public menuCtrl: MenuController,
