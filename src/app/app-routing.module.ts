@@ -61,7 +61,12 @@ const routes: Routes = [
   {
     path: 'sweet-alert',
     loadChildren: () => import('./pages/sweet-alert/sweet-alert.module').then( m => m.SweetAlertPageModule)
+  },
+  {
+    path: 'chat-gpt',
+    loadChildren: () => import('./pages/chat-gpt/chat-gpt.module').then( m => m.ChatGPTPageModule)
   }
+
 
 
 

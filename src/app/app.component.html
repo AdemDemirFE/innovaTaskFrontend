@@ -1,5 +1,12 @@
 <ion-app>
-  <ion-menu menuId="main-menu" content-id="main">
+  <!-- Overlay için -->
+  <div class="menu-overlay" 
+       *ngIf="menuState === 'open'"
+       [@overlayAnimation]="menuState"
+       (click)="closeMenu()">
+  </div>
+
+  <ion-menu (ionWillOpen)="onMenuWillOpen()" (ionWillClose)="onMenuWillClose()" [@menuAnimation]="menuState" menuId="main-menu" content-id="main">
     <ion-content>
       <div class="menu-header-bg"></div>
       <div class="header-content">
@@ -15,7 +22,7 @@
             (click)="goToPage(item.url)" 
             style="font-family: Arial, Helvetica, sans-serif; color: black;">
             <ion-icon slot="start" [name]="item.icon"></ion-icon>
-            {{ item.name | translate  }}
+            {{ item.name | translate }}
           </ion-item>
         </ion-menu-toggle>
         <ion-item 

@@ -7,16 +7,50 @@ import { MenuController, NavController } from '@ionic/angular';
 import { AuthService } from 'src/providers/service/authService';
 import { LoadingService } from 'src/providers/generalServices/LoadingService';
 import { NotificationService } from 'src/providers/generalServices/NotificationService';
+import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
   standalone: false,
+  animations: [
+    trigger('menuAnimation', [
+      state('closed', style({
+        transform: 'translateX(-100%)',
+        opacity: 0.8
+      })),
+      state('open', style({
+        transform: 'translateX(0)',
+        opacity: 1
+      })),
+      transition('closed => open', [
+        animate('300ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+      ]),
+      transition('open => closed', [
+        animate('200ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+      ])
+    ]),
+    trigger('overlayAnimation', [
+      state('open', style({
+        opacity: 0.5
+      })),
+      state('closed', style({
+        opacity: 0
+      })),
+      transition('closed => open', [
+        animate('300ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+      ]),
+      transition('open => closed', [
+        animate('200ms cubic-bezier(0.4, 0.0, 0.2, 1)')
+      ])
+    ])
+  ]
 })
 export class AppComponent {
   selectedLanguage: string;
   code = GeneralSettings.lang;
+  menuState: 'open' | 'closed' = 'closed';
 
   menuItems = [
     { nameKey: 'MENU.HOME', url: '/home', icon: 'home' },
@@ -45,8 +79,17 @@ export class AppComponent {
 
     // Menü çevirilerini yükle
     this.loadMenuTranslations();
+
   }
 
+  onMenuWillOpen() {
+    this.menuState = 'open';
+  }
+
+  onMenuWillClose() {
+    this.menuState = 'closed';
+  }
+  
   async loadMenuTranslations() {
     this.translatedMenuItems = this.menuItems.map(item => ({
       ...item,
@@ -54,11 +97,13 @@ export class AppComponent {
     }));
   }
 
-  goToPage(url: string) {
+  async goToPage(url: string) {
+    await this.closeMenu();
     this.navCtrl.navigateForward(url);
   }
 
   async logout(): Promise<void> {
+    await this.closeMenu();
     await this.loadingService.present(this.translateService.instant('GENERAL.PLEASE_WAIT'));
 
     try {
@@ -71,6 +116,10 @@ export class AppComponent {
     } finally {
       await this.loadingService.dismiss();
     }
-    this.menuController.close();
+  }
+
+  async closeMenu() {
+    await this.menuController.close();
+    this.menuState = 'closed';
   }
 }

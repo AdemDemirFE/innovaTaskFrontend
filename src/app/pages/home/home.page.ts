@@ -30,6 +30,8 @@ export class HomePage {
     { id: 5, label: 'Chart.js', icon: 'stats-chart', action: 'chart' },
     { id: 6, label: 'Webdatarocks', icon: 'stats-chart', action: 'web-data-rocks-example' },
     { id: 7, label: 'Sweet Alert', icon: 'checkmark-circle', action: 'sweet-alert' },
+    { id: 7, label: 'CHAT Gpt', icon: 'checkmark-circle', action: 'chat-gpt' },
+
   ];
   constructor(
     public menuCtrl: MenuController,

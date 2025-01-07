@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>AI Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="chat-container">
+    <div *ngFor="let message of chatHistory" class="message">
+      <div [ngClass]="{ user: message.role === 'user', bot: message.role === 'bot' }">
+        <p>{{ message.content }}</p>
+      </div>
+    </div>
+  </div>
+
+  <ion-footer>
+    <ion-item>
+      <ion-input
+        [(ngModel)]="userInput"
+        placeholder="Type your message..."
+        (keyup.enter)="sendMessage()"
+      ></ion-input>
+      <ion-button slot="end" (click)="sendMessage()">Send</ion-button>
+    </ion-item>
+  </ion-footer>
+</ion-content>
