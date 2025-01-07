@@ -10,6 +10,8 @@
   "REGISTER_PAGE": "Kayıt Ol",
   "MORE_DATA_IS_BEING_LOADED": "Daha fazla veri yükleniyor...",
   "STATISTICS_PAGE": "İstatistik",
+  "APP_TITLE": "Innova Task",
+  "APP_SUBTITLE": "For u test",
   "MENU": {
     "HOME": "Anasayfa",
     "PROFILE": "Firebase Profil",
@@ -117,8 +119,8 @@
     "NOT_CONNECT_SERVER": "Sunucuya bağlanılamıyor !!",
     "ALL_FIELDS_REQUIRED": "Tüm alanlar doldurulmalıdır.",
     "DELETE_FAILED": "Silme işlemi başarısız oldu.",
-    "SAVE_FAILED": "Kaydetme işlemi başarısız oldu."
-
+    "SAVE_FAILED": "Kaydetme işlemi başarısız oldu.",
+    "PHOTO_ERROR": "Fotoğraf alınırken bir hata oluştu"
   },
   "CHANGE_PASSWORD": {
     "PASSWORD_FOR_USER": "Kullanıcısı şifre değiştir",
@@ -134,7 +136,11 @@
     "EMAIL_VERIFIED": "E-posta Doğrulandı",
     "CREATED_AT": "Oluşturulma Tarihi",
     "LAST_LOGIN": "Son Giriş",
-    "LOGOUT": "Çıkış Yap"
+    "LOGOUT": "Çıkış Yap",
+    "CHOOSE_PHOTO_SOURCE": "Fotoğraf Kaynağını Seçin",
+    "TAKE_PHOTO": "Fotoğraf Çek",
+    "CHOOSE_FROM_GALLERY": "Galeriden Seç",
+    "CHOOSE_FILE": "Dosya Seç"
   },
   "CAMERA": {
     "CAMERA": "KAMERA",

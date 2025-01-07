@@ -4,14 +4,14 @@
       <div class="menu-header-bg"></div>
       <div class="header-content">
         <ion-label>
-          <h2 style="color: white;">Innova Task</h2>
-          <p style="color: white;">For u test</p>
+          <h2 style="color: white;">{{ 'APP_TITLE' | translate }}</h2>
+          <p style="color: white;">{{ 'APP_SUBTITLE' | translate }}</p>
         </ion-label>
       </div>
       
       <ion-list>
         <ion-menu-toggle autoHide="false" *ngFor="let item of translatedMenuItems">
-          <ion-item 
+          <ion-item lines="none"
             (click)="goToPage(item.url)" 
             style="font-family: Arial, Helvetica, sans-serif; color: black;">
             <ion-icon slot="start" [name]="item.icon"></ion-icon>

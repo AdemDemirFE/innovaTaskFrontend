@@ -16,6 +16,16 @@
   <ion-grid>
     <ion-row>
       <ion-col>
+        <div class="profile-image-container">
+          <ion-avatar (click)="presentActionSheet()">
+            <img [src]="profileImage || 'assets/default-avatar.png'" alt="Profile photo">
+          </ion-avatar>
+          <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="edit-button">
+            <ion-fab-button size="small" color="danger" (click)="presentActionSheet()">
+              <ion-icon name="camera"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+        </div>
         <ion-card>
           <ion-card-header>
             <ion-card-title>{{ 'PROFILE.USER_INFO' | translate }}</ion-card-title>

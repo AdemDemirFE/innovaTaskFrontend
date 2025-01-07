@@ -81,3 +81,31 @@
     }
   }
 }
+
+.profile-image-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+
+  ion-avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  .edit-button {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+    transform: translate(25%, -25%);
+    
+    ion-fab-button {
+      --background: var(--ion-color-danger);
+      width: 35px;
+      height: 35px;
+      margin: 0;
+    }
+  }
+}

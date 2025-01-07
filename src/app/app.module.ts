@@ -29,6 +29,7 @@ const firestore = getFirestore(firebaseApp);
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // Eklendi
 
 @NgModule({
   declarations: [AppComponent],
@@ -46,6 +47,8 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     C_Utils,
